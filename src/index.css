@@ -1,14 +1,30 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Gilda+Display&family=League+Gothic&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 @import "tailwindcss";
 
 
-.font-sansita{
-    font-family: "Special Gothic Expanded One", serif;
-    
-};
+
+
+.font-gilda {
+    font-family: "Gilda Display", serif;
+
+}
+
+;
+
+.font-gothic {
+    font-family: "League Gothic", serif;
+
+}
+
+;
+
+.font-poppins {
+    font-family: "Poppins", sans-serif;
+
+}
+
+;
 
 @font-face {
     font-family: "Modern Negra";
@@ -31,6 +47,12 @@ body {
     scroll-behavior: smooth;
     overflow-x: hidden;
 
+}
+
+@utility circle {
+  @apply flex items-center justify-center w-16 h-16 rounded-full
+         bg-white/30 backdrop-blur-md
+         hover:bg-white/50 hover:scale-110 transition duration-300;
 }
 
 @utility flex-center {
@@ -90,13 +112,4 @@ body {
             @apply flex-center lg:gap-12 gap-7;
         }
     }
-
-
-                    
-            
-          
-
-   
-
-   
-    
+}
