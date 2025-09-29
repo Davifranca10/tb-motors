@@ -50,9 +50,21 @@ body {
 }
 
 @utility circle {
-  @apply flex items-center justify-center w-16 h-16 rounded-full
-         bg-white/30 backdrop-blur-md
-         hover:bg-white/50 hover:scale-110 transition duration-300;
+    @apply flex items-center justify-center w-16 h-16 rounded-full bg-white/30 backdrop-blur-md hover:bg-white/50 hover:scale-110 transition duration-300;
+}
+
+@utility text-ao-redor {
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    -webkit-text-fill-color: transparent;
+}
+
+@utility flex-col-center {
+  @apply flex flex-col justify-center items-center;
+}
+
+@utility text-center-full {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center;
 }
 
 @utility flex-center {
@@ -87,6 +99,8 @@ body {
     mask-position: center;
     mask-size: 50%;
 }
+
+
 
 @layer components {
     main {

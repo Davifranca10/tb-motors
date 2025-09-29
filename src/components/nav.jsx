@@ -10,7 +10,7 @@ const Nav = () => {
 
                 <ul className='flex gap-30 -mr-40 -mt-2 font-gilda'>
                     {navLinks.map((link) => (
-                        <li key={navLinks.id}>
+                        <li key={link.id}> {/* ✅ */}
                             <a href={`#${link.id}`}>{link.title}</a>
                         </li>
                     ))}

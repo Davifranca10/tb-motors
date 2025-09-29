@@ -13,7 +13,8 @@ const App = () => {
         <main>
            < Nav />
            < Hero />
-           < Apresentation />
+           <div className='pt-[500px]'>< Apresentation /></div>
+           
         </main>
         
     );
