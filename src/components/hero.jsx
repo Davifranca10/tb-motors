@@ -2,7 +2,7 @@ import React from 'react';
 
 const Hero = () => {
     return (
-        <div id='home' className="relative w-screen h-[85vh] overflow-hidden">
+        <div id='home' className="relative w-screen h-[85vh] overflow-hidden brightness-0.9">
             <video autoPlay loop muted className="object-cover w-[100%] h-full">
                 <source src="videos/drone-desktop.mp4" media="(min-width: 768px)" type="video/mp4" />
                 <source src="videos/drone-mobile.mp4" media="(max-width: 767px)" type="video/mp4" />
@@ -10,9 +10,10 @@ const Hero = () => {
             </video>
 
             <div className="font-gothic absolute inset-0 flex items-center justify-center -mt-100 z-20">
-                <h1 className="absolute text-[10rem] text-white font-bold [letter-spacing:0.1em] [text-shadow:2px_2px_4px_rgba(0,0,0,0.6)]"> <span className='text-[#e1aa26]'>TB</span>MOTORS</h1>
-                <p className='font-poppins absolute mt-45 text-[20px] [letter-spacing:0.8em] [text-shadow:0_4px_10px_rgba(0,0,0,0.4)]'><span className='text-[#e1aa26]'>EXCLUSIVIDADE</span> EM MOVIMENTO</p>
-                <p className='font-poppins absolute text-[20px] mt-[110vh] [letter-spacing:0.5em] [text-shadow:0_4px_10px_rgba(0,0,0,0.4)]'>NÃO PERCA ESSA <span className='text-[#e1aa26]'>OPORTUNIDADE!</span></p>
+                <h1 className="absolute text-[10rem] text-white font-bold [letter-spacing:0.1em]"> <span className='text-[#e1aa26]'>TB</span>MOTORS</h1>
+                <p className='font-poppins absolute mt-45 text-[20px] [letter-spacing:0.8em]'><span className='text-[#e1aa26]'>EXCLUSIVIDADE</span> EM MOVIMENTO</p>
+                <p className='font-poppins absolute text-[20px] bottom-10 [letter-spacing:0.5em] '>
+                    NÃO PERCA ESSA <span className='text-[#e1aa26]'>OPORTUNIDADE!</span></p>
             </div>
 
             <button

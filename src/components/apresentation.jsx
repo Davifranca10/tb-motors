@@ -42,24 +42,57 @@ const Apresentation = () => {
         const cont1tl = gsap.timeline({
             scrollTrigger: {
                 trigger: "#container1-apresentation",
-                start: "20% center",
+                start: "top center",
                 end: "20% 30%",
                 duration: 5,
-                markers: true
+                markers: false
             },
         })
             .to("#exclusividade", { opacity: 1, duration: 0.5, yPercent: -40 })
-            .to("#elegancia", { opacity: 1, duration: 1.3, xPercent: -10 })
+            .to("#elegancia", { opacity: 1, duration: 0.5 }, "+=0.2")
+            .to("#paixao", { opacity: 1, duration: 0.5 }, "+=0.4");
+
+        const letter1tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#container1-apresentation",
+                start: "-105% 45%",
+                end: "60% 85%",
+                duration: 5,
+                markers: false,
+                scrub: true,
+                ease: "power1.inOut"
+            },
+        })
+            .fromTo("#title-elegancia", { yPercent: -320 }, { yPercent: -50 }, 0)
+            .fromTo("#title-exclusividade", { y: -1500 }, { y: -437 }, 0)
+            .fromTo("#title-paixao", { yPercent: -451.7, xPercent: -20.5 }, { yPercent: -181.5, xPercent: -20.5 }, 0);
+
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: "#container1-apresentation",
+                start: "20% 50%",
+                end: "bottom 30%",
+                markers: false,
+                toggleActions: "play reverse play reverse"
+            }
+        })
+            .to("#title-elegancia", { yPercent: 0, duration: 1 })
+            .to("#title-exclusividade", { y: 0, duration: 1 }, 0)
+            .to("#title-paixao", { yPercent: 0, xPercent: 0, duration: 1 }, 0);
 
         return () => ScrollTrigger.killAll();
     }, []);
 
     return (
-        <div id="container1-apresentation" ref={sliderRef} className="flex relative ">
+
+
+        <div id="container1-apresentation" ref={sliderRef} className="flex relative">
             {/* Container 1 */}
+            <div id="content">
+            </div>
             <div
                 ref={(el) => (sectionsRef.current[0] = el)}
-                className="min-w-screen h-[100vh] bg-black relative flex items-center justify-center overflow-hidden font-poppins "
+                className="min-w-screen h-[100vh] bg-black relative flex items-center justify-center font-poppins"
             >
 
                 <video id="exclusividade"
@@ -69,38 +102,39 @@ const Apresentation = () => {
                     muted
                     className="absolute w-[1000px] h-auto rounded-4xl shadow-lg translate-y-50 opacity-0"
                 />
-                <h1 className="absolute text-ao-redor text-white text-7xl font-extrabold text-center opacity-0">
+                <h1 id="title-exclusividade" className="absolute text-ao-redor text-7xl font-extrabold text-center opacity-90 ">
                     EXCLUSIVIDADE
                 </h1>
 
 
 
                 <div id="eleganciadiv" className="absolute top-10 right-[1180px]   ">
-                    <div className="relative">
+                    <div className="relative translate-x-20">
                         <video
                             id="elegancia"
                             src="videos/apresentation2.mp4"
                             autoPlay
                             loop
                             muted
-                            className="w-[700px] h-auto object-cover rounded-xl shadow-lg translate-x-20 opacity-0"
+                            className="w-[700px] h-auto object-cover rounded-xl shadow-lg  opacity-0 relative z-0"
                         />
-                        <span className="absolute font-bold inset-0 flex items-center justify-center text-white text-7xl">
+                        <span id="title-elegancia" className="absolute inset-0 flex items-center justify-center text-white text-7xl font-bold opacity-70 z-10">
                             ELEGÂNCIA
                         </span>
                     </div>
                 </div>
 
-                <div id="paixao" className="absolute bottom-10 left-[1180px] translate-y-50 opacity-0">
+                <div id="paixaodiv" className="absolute bottom-10 left-[1180px] translate-y-50 ">
                     <div className="relative">
                         <video
+                            id="paixao"
                             src="videos/apresentation3.mp4"
                             autoPlay
                             loop
                             muted
-                            className="w-[700px] h-auto object-cover rounded-xl shadow-lg"
+                            className="w-[700px] h-auto object-cover rounded-xl shadow-lg -translate-y-50 opacity-0"
                         />
-                        <span className="absolute font-bold inset-0 flex items-center justify-center text-white text-7xl">
+                        <span id="title-paixao" className="absolute font-bold inset-0 flex items-start justify-center text-white text-7xl opacity-70">
                             PAIXÃO
                         </span>
                     </div>

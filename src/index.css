@@ -46,6 +46,8 @@ body {
     color: rgb(255, 255, 255);
     scroll-behavior: smooth;
     overflow-x: hidden;
+    overflow-y: auto;
+    /* ou 'scroll' se quiser garantir que sempre apareça */
 
 }
 
@@ -55,12 +57,12 @@ body {
 
 @utility text-ao-redor {
     color: transparent;
-    -webkit-text-stroke: 1px white;
+    -webkit-text-stroke: 1px #FFFFFF;
     -webkit-text-fill-color: transparent;
 }
 
 @utility flex-col-center {
-  @apply flex flex-col justify-center items-center;
+    @apply flex flex-col justify-center items-center;
 }
 
 @utility text-center-full {
@@ -103,8 +105,10 @@ body {
 
 
 @layer components {
+
     main {
-        @apply w-full overflow-y-hidden;
+        @apply w-full;
+        /* overflow-y-hidden REMOVIDO */
     }
 
     nav {
