@@ -82,7 +82,7 @@ body {
 }
 
 @utility text-gradient {
-    background: linear-gradient(to bottom, #FFFFFF, #450707);
+    background: linear-gradient(to bottom, #e1aa26, #BD8706 );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
