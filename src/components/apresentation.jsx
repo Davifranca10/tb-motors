@@ -39,6 +39,8 @@ const Apresentation = () => {
             x: ((sections.length - 1) * -100) + "vw",
         });
 
+
+
         const cont1tl = gsap.timeline({
             scrollTrigger: {
                 trigger: "#container1-apresentation",
@@ -56,29 +58,22 @@ const Apresentation = () => {
             scrollTrigger: {
                 trigger: "#container1-apresentation",
                 start: "-105% 45%",
-                end: "60% 85%",
-                duration: 5,
-                markers: false,
+                end: "10% top",
                 scrub: true,
-                ease: "power1.inOut"
-            },
-        })
-            .fromTo("#title-elegancia", { yPercent: -320 }, { yPercent: -50 }, 0)
-            .fromTo("#title-exclusividade", { y: -1500 }, { y: -437 }, 0)
-            .fromTo("#title-paixao", { yPercent: -451.7, xPercent: -20.5 }, { yPercent: -181.5, xPercent: -20.5 }, 0);
-
-        gsap.timeline({
-            scrollTrigger: {
-                trigger: "#container1-apresentation",
-                start: "20% 50%",
-                end: "bottom 30%",
                 markers: false,
-                toggleActions: "play reverse play reverse"
-            }
-        })
-            .to("#title-elegancia", { yPercent: 0, duration: 1 })
-            .to("#title-exclusividade", { y: 0, duration: 1 }, 0)
-            .to("#title-paixao", { yPercent: 0, xPercent: 0, duration: 1 }, 0);
+                ease: "power1.inOut",
+            },
+        });
+
+        // entrada: do topo até o centro
+        letter1tl.fromTo("#title-elegancia", { yPercent: -320 }, { yPercent: -150 }, 0)
+            .fromTo("#title-exclusividade", { y: -1500 }, { y: -832 }, 0)
+            .fromTo("#title-paixao", { yPercent: -451.7, xPercent: -20.5 }, { yPercent: -281.5, xPercent: -20.5 }, 0);
+
+        // saída: do centro para posição final 0
+        letter1tl.to("#title-elegancia", { yPercent: 0, duration: 1 }, 0.5)
+            .to("#title-exclusividade", { y: 0, duration: 1 }, 0.5)
+            .to("#title-paixao", { yPercent: 0, xPercent: 0, duration: 1 }, 0.5);
 
         return () => ScrollTrigger.killAll();
     }, []);
