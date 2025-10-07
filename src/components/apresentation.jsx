@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,10 +10,14 @@ const Apresentation = () => {
     const sectionsRef = useRef([]);
 
     useEffect(() => {
+
+
+
         const slider = sliderRef.current;
         const sections = sectionsRef.current;
 
         const telaAtual = window.innerWidth;
+
 
         ScrollTrigger.getAll().forEach((st) => st.kill());
 
@@ -40,6 +45,34 @@ const Apresentation = () => {
         });
 
 
+        const about = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#about",
+                start: "top bottom",
+                end: "top 80%",
+                scrub: 1,
+                markers: false,
+            },
+        }).to("#about", { yPercent: ["-562.331%"], ease: "power1.inOut" })
+
+
+
+        const titles = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#container1-apresentation",
+                start: "top center",
+                end: "center 20%",
+                duration: 1,
+                markers: false,
+                ease: "power1.inOut",
+                toggleActions: "play none none reverse",
+            },
+        })
+            .fromTo("#title-exclusividade", { yPercent: -30, opacity: 0 }, { yPercent: 0, ease: "power1.inOut", opacity: 1 }, 0)
+            .fromTo("#title-elegancia", { yPercent: -30, color: "#e1aa26", opacity: 0 }, { yPercent: 0, ease: "power1.inOut", color: "#FFFFFF", opacity: 0.7 }, 0)
+            .fromTo("#title-paixao", { yPercent: -30, color: "#e1aa26", opacity: 0 }, { yPercent: 0, xPercent: 0, ease: "power1.inOut", opacity: 0.7, color: "#FFFFFF" }, 0);
+
+
 
         const cont1tl = gsap.timeline({
             scrollTrigger: {
@@ -50,30 +83,43 @@ const Apresentation = () => {
                 markers: false
             },
         })
-            .to("#exclusividade", { opacity: 1, duration: 0.5, yPercent: -40 })
+            .to("#exclusividade", { opacity: 1, duration: 0.9, yPercent: -40 })
             .to("#elegancia", { opacity: 1, duration: 0.5 }, "+=0.2")
-            .to("#paixao", { opacity: 1, duration: 0.5 }, "+=0.4");
+            .to("#paixao", { opacity: 1, duration: 0.2 }, "+=0.4");
 
-        const letter1tl = gsap.timeline({
+
+
+
+
+        const cont2Tl = gsap.timeline(
+            {
+                scrollTrigger: {
+                    trigger: "#container2",
+                    start: "98% 40%",
+                    end: "center center",
+                    scrub: 2,
+                    markers: false,
+                    ease: "power1.inOut",
+                }
+            });
+
+        cont2Tl.to("#tb1", { opacity: 0, yPercent: -10, duration: 0.8, ease: "power1.inOut" }, 0)
+            .to("#tb3", { opacity: 0, yPercent: -10, duration: 0.8, ease: "power1.inOut" }, 0.1)
+            .to("#subtitle-container2", { opacity: 1, duration: 0.7, ease: "power1.inOut" }, 0.5)
+            .to("#video-container2", { zIndex: 1, opacity: 0, duration: 0.7, ease: "power1.inOut" }, 0.5);
+
+
+        const cont2 = gsap.timeline({
             scrollTrigger: {
-                trigger: "#container1-apresentation",
-                start: "-105% 45%",
-                end: "10% top",
+                trigger: "#container2",
+                start: "100% center",
+                end: "200% 65%",
                 scrub: true,
                 markers: false,
-                ease: "power1.inOut",
-            },
+            }
         });
+        cont2.to("#container2", { yPercent: 60, ease: "power1.inOut" }, 0);
 
-        // entrada: do topo até o centro
-        letter1tl.fromTo("#title-elegancia", { yPercent: -320 }, { yPercent: -150 }, 0)
-            .fromTo("#title-exclusividade", { y: -1500 }, { y: -832 }, 0)
-            .fromTo("#title-paixao", { yPercent: -451.7, xPercent: -20.5 }, { yPercent: -281.5, xPercent: -20.5 }, 0);
-
-        // saída: do centro para posição final 0
-        letter1tl.to("#title-elegancia", { yPercent: 0, duration: 1 }, 0.5)
-            .to("#title-exclusividade", { y: 0, duration: 1 }, 0.5)
-            .to("#title-paixao", { yPercent: 0, xPercent: 0, duration: 1 }, 0.5);
 
         return () => ScrollTrigger.killAll();
     }, []);
@@ -81,13 +127,18 @@ const Apresentation = () => {
     return (
 
 
-        <div id="container1-apresentation" ref={sliderRef} className="flex relative">
+
+        <div id="container1-apresentation" ref={sliderRef} className="flex relative ">
             {/* Container 1 */}
-            <div id="content">
+            <div id="about-div" className="absolute w-full -translate-y-190">
+                <h2 className="font-gothic font-extrabold text-[#7A7A7A] text-center text-9xl opacity-70 tracking-wide">TBMOTORS</h2>
+
+                
+                <h1 id="about" className="font-poppins font-extralight text-6xl text-center translate-y-60">O que nossa loja oferece?</h1>
             </div>
             <div
                 ref={(el) => (sectionsRef.current[0] = el)}
-                className="min-w-screen h-[100vh] bg-black relative flex items-center justify-center font-poppins"
+                className="min-w-screen h-[100vh] -bottom-50 bg-black relative flex items-center justify-center font-poppins"
             >
 
                 <video id="exclusividade"
@@ -97,7 +148,7 @@ const Apresentation = () => {
                     muted
                     className="absolute w-[1000px] h-auto rounded-4xl shadow-lg translate-y-50 opacity-0"
                 />
-                <h1 id="title-exclusividade" className="absolute text-ao-redor text-7xl font-extrabold text-center opacity-90 ">
+                <h1 id="title-exclusividade" className="z-20 absolute text-ao-redor text-7xl font-extrabold text-center opacity-90 ">
                     EXCLUSIVIDADE
                 </h1>
 
@@ -140,29 +191,35 @@ const Apresentation = () => {
             <div
                 id="container2"
                 ref={(el) => (sectionsRef.current[1] = el)}
-                className="min-w-screen h-[100vh] relative flex flex-col items-center justify-center gap-[-5] bg-black"
+                className="min-w-screen h-[100vh] -bottom-50 relative flex flex-col items-center justify-center gap-[-5] bg-black"
             >
-                <h1 className="font-poppins font-bold text-[32vh] tracking-wider text-center text-[#e1aa26] opacity-100">
+
+
+                <h1 id="tb1" className="font-poppins font-bold text-[32vh] tracking-wider text-center text-[#e1aa26] opacity-100">
                     TBMOTORS
                 </h1>
-                <h1 className="font-poppins font-bold text-[32vh] tracking-wider text-center text-[#e1aa26] -mt-50">
+                <h1 id="tb2" className="font-poppins font-bold text-[32vh] tracking-wider text-center text-[#e1aa26] -mt-50 z-10">
                     TBMOTORS
                 </h1>
-                <h1 className="font-poppins font-bold text-[32vh] tracking-wider text-center text-[#e1aa26] -mt-50 opacity-100">
+                <h1 id="tb3" className="font-poppins font-bold text-[32vh] tracking-wider text-center text-[#e1aa26] -mt-50 opacity-100">
                     TBMOTORS
                 </h1>
-                <h2 className="font-poppins font-bold text-7xl relative -translate-y-90 opacity-0">
+                <h2 id="subtitle-container2" className="font-poppins font-bold text-7xl relative -translate-y-90 opacity-0">
                     EXCLUSIVIDADE EM MOVIMENTO
                 </h2>
 
                 <video
+                    id="video-container2"
                     src="videos/tbmotors3.mp4"
                     autoPlay
                     loop
                     muted
-                    className="absolute top-1/2 transform -translate-y-1/2 w-[900px] h-auto object-cover rounded-xl shadow-lg opacity-100"
+                    className="z-20 absolute top-1/2 transform -translate-y-1/2 w-[900px] h-auto object-cover rounded-xl shadow-lg opacity-100"
                 />
+
             </div>
+            <div className="h-[200vh] bg-transparent"></div>
+
         </div>
     );
 };
