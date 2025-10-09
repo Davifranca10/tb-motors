@@ -9,15 +9,10 @@ const Apresentation = () => {
     const sliderRef = useRef(null);
     const sectionsRef = useRef([]);
 
-    useEffect(() => {
-
-
-
+    useGSAP(() => {
         const slider = sliderRef.current;
         const sections = sectionsRef.current;
-
         const telaAtual = window.innerWidth;
-
 
         ScrollTrigger.getAll().forEach((st) => st.kill());
 
@@ -29,85 +24,90 @@ const Apresentation = () => {
                 scrub: 2,
                 markers: false,
                 start: "20% 20%",
-
-                end: () => {
-                    if (telaAtual > 1024) {
-                        return "+=" + slider.offsetWidth * 0.3;
-                    } else {
-                        return "+=" + slider.offsetWidth * 0.8;
-                    }
-                },
+                end: () =>
+                    telaAtual > 1024
+                        ? "+=" + slider.offsetWidth * 0.3
+                        : "+=" + slider.offsetWidth * 0.8,
             },
         });
 
         sliderTl.to(slider, {
-            x: ((sections.length - 1) * -100) + "vw",
+            x: `${(sections.length - 1) * -100}vw`,
         });
 
-
-        const about = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#about",
-                start: "top bottom",
-                end: "top 80%",
-                scrub: 1,
-                markers: false,
-            },
-        }).to("#about", { yPercent: ["-562.331%"], ease: "power1.inOut" })
-
-
+        gsap
+            .timeline({
+                scrollTrigger: {
+                    trigger: "#about",
+                    start: "top bottom",
+                    end: "top 80%",
+                    scrub: 1,
+                    markers: false,
+                },
+            })
+            .to("#about", { yPercent: -562.331, ease: "power1.inOut" });
 
         const titles = gsap.timeline({
             scrollTrigger: {
                 trigger: "#container1-apresentation",
                 start: "top center",
                 end: "center 20%",
-                duration: 1,
+                scrub: false,
                 markers: false,
-                ease: "power1.inOut",
                 toggleActions: "play none none reverse",
             },
-        })
-            .fromTo("#title-exclusividade", { yPercent: -30, opacity: 0 }, { yPercent: 0, ease: "power1.inOut", opacity: 1 }, 0)
-            .fromTo("#title-elegancia", { yPercent: -30, color: "#e1aa26", opacity: 0 }, { yPercent: 0, ease: "power1.inOut", color: "#FFFFFF", opacity: 0.7 }, 0)
-            .fromTo("#title-paixao", { yPercent: -30, color: "#e1aa26", opacity: 0 }, { yPercent: 0, xPercent: 0, ease: "power1.inOut", opacity: 0.7, color: "#FFFFFF" }, 0);
+        });
 
-
+        titles
+            .fromTo(
+                "#title-exclusividade",
+                { yPercent: -30, opacity: 0 },
+                { yPercent: 0, opacity: 1, ease: "power1.inOut" },
+                0
+            )
+            .fromTo(
+                "#title-elegancia",
+                { yPercent: -30, color: "#e1aa26", opacity: 0 },
+                { yPercent: 0, color: "#FFFFFF", opacity: 0.7, ease: "power1.inOut" },
+                0
+            )
+            .fromTo(
+                "#title-paixao",
+                { yPercent: -30, color: "#e1aa26", opacity: 0 },
+                { yPercent: 0, color: "#FFFFFF", opacity: 0.7, ease: "power1.inOut" },
+                0
+            );
 
         const cont1tl = gsap.timeline({
             scrollTrigger: {
                 trigger: "#container1-apresentation",
                 start: "top center",
                 end: "20% 30%",
-                duration: 5,
-                markers: false
+                markers: false,
             },
-        })
+        });
+
+        cont1tl
             .to("#exclusividade", { opacity: 1, duration: 0.9, yPercent: -40 })
             .to("#elegancia", { opacity: 1, duration: 0.5 }, "+=0.2")
             .to("#paixao", { opacity: 1, duration: 0.2 }, "+=0.4");
 
+        const cont2Tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#container2",
+                start: "98% 40%",
+                end: "center center",
+                scrub: 2,
+                markers: false,
+                ease: "power1.inOut",
+            },
+        });
 
-
-
-
-        const cont2Tl = gsap.timeline(
-            {
-                scrollTrigger: {
-                    trigger: "#container2",
-                    start: "98% 40%",
-                    end: "center center",
-                    scrub: 2,
-                    markers: false,
-                    ease: "power1.inOut",
-                }
-            });
-
-        cont2Tl.to("#tb1", { opacity: 0, yPercent: -10, duration: 0.8, ease: "power1.inOut" }, 0)
-            .to("#tb3", { opacity: 0, yPercent: -10, duration: 0.8, ease: "power1.inOut" }, 0.1)
-            .to("#subtitle-container2", { opacity: 1, duration: 0.7, ease: "power1.inOut" }, 0.5)
-            .to("#video-container2", { zIndex: 1, opacity: 0, duration: 0.7, ease: "power1.inOut" }, 0.5);
-
+        cont2Tl
+            .to("#tb1", { opacity: 0, yPercent: -10, duration: 0.8 }, 0)
+            .to("#tb3", { opacity: 0, yPercent: -10, duration: 0.8 }, 0.1)
+            .to("#subtitle-container2", { opacity: 1, duration: 0.7 }, 0.5)
+            .to("#video-container2", { zIndex: 1, opacity: 0, duration: 0.7 }, 0.5);
 
         const cont2 = gsap.timeline({
             scrollTrigger: {
@@ -116,10 +116,12 @@ const Apresentation = () => {
                 end: "200% 65%",
                 scrub: true,
                 markers: false,
-            }
+            },
         });
-        cont2.to("#container2", { yPercent: 60, ease: "power1.inOut" }, 0);
 
+        cont2.to("#container2", { yPercent: 60, ease: "power1.inOut" }, 0)
+        cont2.to("#tb2", { scale:0.8, ease: "power1.inOut" }, 0);
+        cont2.to("#subtitle-container2", {scale:1.2, letterSpacing: "0.1em", ease: "power1.inOut" }, 0)
 
         return () => ScrollTrigger.killAll();
     }, []);
@@ -133,7 +135,7 @@ const Apresentation = () => {
             <div id="about-div" className="absolute w-full -translate-y-190">
                 <h2 className="font-gothic font-extrabold text-[#7A7A7A] text-center text-9xl opacity-70 tracking-wide">TBMOTORS</h2>
 
-                
+
                 <h1 id="about" className="font-poppins font-extralight text-6xl text-center translate-y-60">O que nossa loja oferece?</h1>
             </div>
             <div
@@ -195,13 +197,13 @@ const Apresentation = () => {
             >
 
 
-                <h1 id="tb1" className="font-poppins font-bold text-[32vh] tracking-wider text-center text-[#e1aa26] opacity-100">
+                <h1 id="tb1" className="font-poppins font-bold text-[32vh] tracking-wider text-center orange opacity-100">
                     TBMOTORS
                 </h1>
-                <h1 id="tb2" className="font-poppins font-bold text-[32vh] tracking-wider text-center text-[#e1aa26] -mt-50 z-10">
+                <h1 id="tb2" className="font-poppins font-bold text-[32vh] tracking-wider text-center orange -mt-50 z-10">
                     TBMOTORS
                 </h1>
-                <h1 id="tb3" className="font-poppins font-bold text-[32vh] tracking-wider text-center text-[#e1aa26] -mt-50 opacity-100">
+                <h1 id="tb3" className="font-poppins font-bold text-[32vh] tracking-wider text-center orange -mt-50 opacity-100">
                     TBMOTORS
                 </h1>
                 <h2 id="subtitle-container2" className="font-poppins font-bold text-7xl relative -translate-y-90 opacity-0">

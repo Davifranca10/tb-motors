@@ -81,13 +81,13 @@ const Hero = () => {
 
             <div className="font-gothic absolute inset-0 flex items-center justify-center -mt-100 z-20">
                 <h1 id='hero-title' className="absolute text-[10rem] text-white font-bold [letter-spacing:0.1em]">
-                    <span className='text-[#e1aa26]'>TB</span>MOTORS
+                    <span className='orange'>TB</span>MOTORS
                 </h1>
                 <p id='subtitle-hero' className='font-poppins absolute mt-45 text-[20px] [letter-spacing:0.8em]'>
-                    <span className='text-[#e1aa26]'>EXCLUSIVIDADE</span> EM MOVIMENTO
+                    <span className='orange'>EXCLUSIVIDADE</span> EM MOVIMENTO
                 </p>
                 <p id='sub2-hero' className='font-poppins absolute text-[20px] bottom-45 [letter-spacing:0.5em]'>
-                    NÃO PERCA ESSA <span className='text-[#e1aa26]'>OPORTUNIDADE!</span>
+                    NÃO PERCA ESSA <span className='orange'>OPORTUNIDADE!</span>
                 </p>
             </div>
 

@@ -51,9 +51,18 @@ body {
 
 }
 
+@utility orange {
+    @apply text-[#e1aa26];
+}
+
+@utility subtitle{
+    @apply text-5xl tracking-wide font-bold;
+}
+
 @utility circle {
     @apply flex items-center justify-center w-16 h-16 rounded-full bg-white/30 backdrop-blur-md hover:bg-white/50 hover:scale-110 transition duration-300;
 }
+
 
 @utility text-ao-redor {
     color: transparent;
@@ -61,39 +70,11 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-@utility flex-col-center {
-    @apply flex flex-col justify-center items-center;
-}
-
-@utility text-center-full {
-    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center;
-}
-
 @utility flex-center {
     @apply flex justify-center items-center;
 }
 
-@utility col-center {
-    @apply flex flex-col justify-center items-center;
-}
 
-@utility abs-center {
-    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
-}
-
-@utility text-gradient {
-    background: linear-gradient(to bottom, #e1aa26, #BD8706 );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-@utility radial-gradient {
-    background: radial-gradient(circle at center,
-            #434343 0%,
-            #000 50%,
-            transparent 100%);
-}
 
 @utility masked-img {
     mask-image: url("/images/mask-img.png");
