@@ -56,7 +56,10 @@ body {
 }
 
 @utility subtitle{
-    @apply text-5xl tracking-wide font-bold;
+    @apply text-6xl tracking-wide font-bold pb-7;
+}
+@utility paragraph{
+    @apply text-3xl font-light tracking-[3px];
 }
 
 @utility circle {
