@@ -133,7 +133,7 @@ const Apresentation = () => {
         <div id="container1-apresentation" ref={sliderRef} className="flex relative ">
             {/* Container 1 */}
             <div id="about-div" className="absolute w-full -translate-y-190">
-                <h2 className="font-gothic font-extrabold text-[#7A7A7A] text-center text-9xl opacity-70 tracking-wide">TBMOTORS</h2>
+                <h2 className="font-bebas font-extrabold text-[#7A7A7A] text-center text-9xl opacity-70 tracking-wide">TBMOTORS</h2>
 
 
                 <h1 id="about" className="font-poppins font-extralight text-6xl text-center translate-y-60">O que nossa loja oferece?</h1>
