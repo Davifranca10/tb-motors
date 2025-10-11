@@ -11,15 +11,20 @@ const SplitScreen = () => {
     const imageRef = useRef(null);
     const contentRef = useRef(null);
 
+
     const [hoveredIndex, setHoveredIndex] = useState(0);
     const descriptionRef = useRef(null);
 
-    // Refs para as imagens e textos do Begonha
     const begonhaImage1Ref = useRef(null);
     const begonhaImage2Ref = useRef(null);
     const begonhaSectionRef = useRef(null);
     const begonhaText1Ref = useRef(null);
     const begonhaText2Ref = useRef(null);
+
+    const splitImage2Ref = useRef(null);
+    const splitImage3Ref = useRef(null);
+
+
 
     useGSAP(() => {
         // --- ANIMAÇÃO SPLIT PRINCIPAL ---
@@ -75,8 +80,8 @@ const SplitScreen = () => {
             )
             .fromTo(
                 begonhaText2Ref.current,
-                { opacity: 0, y: 20 },
-                { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
+                { opacity: 0, yPercent: 0 },
+                { opacity: 1, duration: 0.5, ease: "power2.out" },
                 "-=0.3"
             );
 
@@ -101,6 +106,41 @@ const SplitScreen = () => {
                 }
             );
         });
+
+        const trocaSplit = gsap.timeline({
+            scrollTrigger: {
+                trigger: begonhaSectionRef.current,
+                start: "bottom 20%", // ajuste fino do início
+                end: "bottom top",   // ajuste fino do fim
+                scrub: 1,
+                markers: false
+            },
+        })
+            .fromTo(
+                splitImage2Ref.current,
+                { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" },
+                {
+                    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+                    duration: 1,
+                    ease: "power2.inOut",
+                }
+            )
+        // Segunda imagem (começa mais tarde)
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: begonhaSectionRef.current,
+                start: "bottom -80%",
+                end: "bottom -150%",
+                scrub: 1,
+                markers: false
+            }
+        })
+            .fromTo(splitImage3Ref.current,
+                { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" },
+                { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", duration: 1, ease: "power2.inOut" }
+            );
+
+
     }, []);
 
     return (
@@ -112,29 +152,52 @@ const SplitScreen = () => {
                 >
                     <div
                         ref={imageRef}
-                        className="absolute w-[100vw] h-full pointer-events-none"
+                        className="absolute w-[100vw] h-full pointer-events-none overflow-hidden"
                     >
                         <img
                             src="images/split.png"
-                            className="w-[100%] max-w-[100%] h-full object-cover z-10 pointer-events-none"
+                            alt="split 1"
+                            className="w-full h-full object-cover"
+                        />
+                        <img
+                            ref={splitImage2Ref}
+                            src="images/split2.png"
+                            alt="split 2"
+                            className="absolute top-0 left-0 w-full h-full object-cover"
+                            style={{
+                                clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+                            }}
+                        />
+                        <img
+                            ref={splitImage3Ref}
+                            src="images/split3.png"
+                            alt="split 3"
+                            className="absolute top-0 left-0 w-full h-full object-cover"
+                            style={{
+                                clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)", // começa escondida à direita
+                            }}
                         />
                     </div>
+
                 </section>
+
+                <div className="w-[110%] h-0.5  -ml-10 bg-gradient-to-r from-[#000000] via-[#1d1600] to-[#ffc400]"></div>
+                
 
                 {/* --- CONTEÚDO --- */}
                 <div
                     id="funkson"
-                    className="absolute top-0 right-0 w-6/10 h-full flex items-center justify-center p-10 bg-[#111] z-30"
+                    className="absolute top-0 right-0 w-6/10 h-full flex items-center justify-center  p-10 z-30"
                 >
                     <div
                         ref={contentRef}
-                        className="font-poppins w-[100vw] text-gray-200 mt-50 -translate-y-10 tracking-wider "
+                        className="font-poppins w-[100vw] text-gray-200 mt-50  tracking-wider "
                     >
                         <div id="title">
-                            <h2 className="font-bebas text-[180px] font-bold orange mb-6 text-center">
+                            <h2 className="font-bebas text-[180px] font-bold  orange mb-6 text-center">
                                 <span className="text-white">QUEM</span> SOMOS
                             </h2>
-                            <h3 className="text-2xl -translate-y-20 text-center tracking-widest font-light">
+                            <h3 className="text-2xl -mt-20 pb-30 text-center tracking-widest font-light">
                                 <span className="orange">UM POUCO SOBRE</span> A NOSSA HISTÓRIA
                             </h3>
                         </div>
@@ -155,17 +218,17 @@ const SplitScreen = () => {
                         <div
                             id="conheca-begonha"
                             ref={begonhaSectionRef}
-                            className="mt-80 mb-90 relative"
+                            className="mt-80 mb-90 relative "
                         >
                             <div className="relative w-full ml-50 mt-4">
                                 <h2
                                     ref={begonhaText1Ref}
-                                    className="font-gilda absolute w-full"
+                                    className="font-gilda absolute w-full bottom-2"
                                 >
                                     Thiago Begonha, fundador da{" "}
                                     <span className="orange">TB Motors</span>
                                 </h2>
-                                <h2 ref={begonhaText2Ref} className="font-gilda opacity-0">
+                                <h2 ref={begonhaText2Ref} className="z-30 opacity-0 absolute -bottom-182 left-0 right-0 text-center font-gilda ">
                                     Thiago Begonha, e sua{" "}
                                     <span className="orange">Família</span>
                                 </h2>
@@ -187,6 +250,7 @@ const SplitScreen = () => {
                                         clipPath: "polygon(0 0, 0 0, 0 0, 0 0)",
                                     }}
                                 />
+
                             </div>
                         </div>
 
@@ -211,8 +275,8 @@ const SplitScreen = () => {
                                             type="button"
                                             onMouseEnter={() => setHoveredIndex(index)}
                                             className={`w-full text-left py-4 border-b border-[#7e5200] transform transition-transform duration-300 ease-in-out ${hoveredIndex === index
-                                                    ? "text-[#e48c08] scale-120 border-[#ffa600] border-b-2"
-                                                    : "text-[#686868] scale-110"
+                                                ? "text-[#e48c08] scale-120 border-[#ffa600] border-b-2"
+                                                : "text-[#686868] scale-110"
                                                 }`}
                                         >
                                             <div className="flex items-center justify-between w-full">
@@ -238,7 +302,7 @@ const SplitScreen = () => {
                             </div>
                         </div>
 
-                        <div id="realizando-sonhos" className="pt-130 ">
+                        <div id="realizando-sonhos" className="pt-130">
                             <div className="w-[700px] h-0.5 -translate-x-57 bg-gradient-to-r from-[#111111] to-[#c57b0b] mt-6"></div>
 
                             <h2 className="text-9xl tracking-wide font-bebas text-center h-30 pt-1">
@@ -254,10 +318,12 @@ const SplitScreen = () => {
                                 <span className="text-white">todo esforço faz sentido</span>.
                             </p>
 
-                            <div className="w-[110%] h-0.5 -ml-10 bg-gradient-to-r from-[#111111] via-[#e48c08] to-[#111111]"></div>
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
         </>
     );
