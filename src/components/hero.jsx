@@ -72,7 +72,7 @@ const Hero = () => {
 
     return (
         //h-[85vh] estava antes
-        <div id='home' className="relative w-screen h-screen overflow-hidden brightness-0.9">
+        <div id='home' className="relative w-screen h-screen overflow-hidden brightness-0.9 z-1">
             <video id='video-drone' autoPlay loop muted className="object-cover w-full h-full">
                 <source src="videos/drone-desktop.mp4" media="(min-width: 768px)" type="video/mp4" />
                 <source src="videos/drone-mobile.mp4" media="(max-width: 767px)" type="video/mp4" />

@@ -140,7 +140,7 @@ const Apresentation = () => {
             </div>
             <div
                 ref={(el) => (sectionsRef.current[0] = el)}
-                className="min-w-screen h-[100vh] -bottom-50 bg-black relative flex items-center justify-center font-poppins"
+                className="min-w-screen h-[100vh] -bottom-50 bg-black relative flex items-center justify-center font-poppins "
             >
 
                 <video id="exclusividade"

@@ -10,6 +10,7 @@ const SplitScreen = () => {
     const sectionRef = useRef(null);
     const imageRef = useRef(null);
     const contentRef = useRef(null);
+    const particlesRef = useRef(null);
 
 
     const [hoveredIndex, setHoveredIndex] = useState(0);
@@ -23,6 +24,7 @@ const SplitScreen = () => {
 
     const splitImage2Ref = useRef(null);
     const splitImage3Ref = useRef(null);
+    const realizandoRef = useRef(null);
 
 
 
@@ -110,8 +112,8 @@ const SplitScreen = () => {
         const trocaSplit = gsap.timeline({
             scrollTrigger: {
                 trigger: begonhaSectionRef.current,
-                start: "bottom 20%", // ajuste fino do início
-                end: "bottom top",   // ajuste fino do fim
+                start: "bottom 20%",
+                end: "bottom top",
                 scrub: 1,
                 markers: false
             },
@@ -125,7 +127,7 @@ const SplitScreen = () => {
                     ease: "power2.inOut",
                 }
             )
-        // Segunda imagem (começa mais tarde)
+
         gsap.timeline({
             scrollTrigger: {
                 trigger: begonhaSectionRef.current,
@@ -140,12 +142,47 @@ const SplitScreen = () => {
                 { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", duration: 1, ease: "power2.inOut" }
             );
 
+        gsap.fromTo(
+            particlesRef.current,
+            { opacity: 1 },
+            {
+                opacity: 0,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: realizandoRef.current, // agora segue até o fim da seção funkson
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true,
+                },
+            }
+        );
+
+
 
     }, []);
 
     return (
         <>
             <div className="relative">
+                {/* Grid de fundo sutil */}
+                <div className="fixed inset-0 bg-[linear-gradient(rgba(228,140,8,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(228,140,8,0.03)_1px,transparent_1px)] bg-[size:100px_100px] pointer-events-none z-0"></div>
+
+                {/* Partículas flutuantes */}
+                <div ref={particlesRef} className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+                    {[...Array(30)].map((_, i) => (
+                        <div
+                            key={i}
+                            className="absolute w-1 h-1 bg-orange-400 rounded-full opacity-20"
+                            style={{
+                                left: `${Math.random() * 100}%`,
+                                top: `${Math.random() * 100}%`,
+                                animation: `float ${5 + Math.random() * 10}s ease-in-out infinite`,
+                                animationDelay: `${Math.random() * 5}s`,
+                            }}
+                        ></div>
+                    ))}
+                </div>
+
                 <section
                     ref={sectionRef}
                     className="flex h-[100vh] w-[40%] z-40 pointer-events-none "
@@ -174,7 +211,7 @@ const SplitScreen = () => {
                             alt="split 3"
                             className="absolute top-0 left-0 w-full h-full object-cover"
                             style={{
-                                clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)", // começa escondida à direita
+                                clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
                             }}
                         />
                     </div>
@@ -182,7 +219,7 @@ const SplitScreen = () => {
                 </section>
 
                 <div className="w-[110%] h-0.5  -ml-10 bg-gradient-to-r from-[#000000] via-[#1d1600] to-[#ffc400]"></div>
-                
+
 
                 {/* --- CONTEÚDO --- */}
                 <div
@@ -302,7 +339,7 @@ const SplitScreen = () => {
                             </div>
                         </div>
 
-                        <div id="realizando-sonhos" className="pt-130">
+                        <div id="realizando-sonhos" ref={realizandoRef} className="pt-130">
                             <div className="w-[700px] h-0.5 -translate-x-57 bg-gradient-to-r from-[#111111] to-[#c57b0b] mt-6"></div>
 
                             <h2 className="text-9xl tracking-wide font-bebas text-center h-30 pt-1">
@@ -325,6 +362,15 @@ const SplitScreen = () => {
                 </div>
 
             </div>
+
+            <style jsx>{`
+                @keyframes float {
+                    0%, 100% { transform: translateY(0) translateX(0); }
+                    25% { transform: translateY(-30px) translateX(20px); }
+                    50% { transform: translateY(-60px) translateX(-20px); }
+                    75% { transform: translateY(-30px) translateX(20px); }
+                }
+            `}</style>
         </>
     );
 };
