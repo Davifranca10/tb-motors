@@ -18,7 +18,6 @@ const App = () => {
       <div className="h-[100vh]"></div>
       <div className='pt-[500px]'>< Apresentation /></div>
       <Split />
-      <Machine />
     </main>
 
   );

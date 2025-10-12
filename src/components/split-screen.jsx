@@ -24,7 +24,15 @@ const SplitScreen = () => {
 
     const splitImage2Ref = useRef(null);
     const splitImage3Ref = useRef(null);
+    const splitImage4Ref = useRef(null);
+    const splitImage5Ref = useRef(null);
+
+
     const realizandoRef = useRef(null);
+    const porscheCtaRef = useRef(null);
+    const mustangCtaRef = useRef(null);
+
+
 
 
 
@@ -48,7 +56,7 @@ const SplitScreen = () => {
             scrollTrigger: {
                 trigger: sectionRef.current,
                 start: "top top",
-                end: "+=380%",
+                end: "+=550%",
                 pin: true,
                 scrub: true,
                 anticipatePin: 1,
@@ -109,24 +117,7 @@ const SplitScreen = () => {
             );
         });
 
-        const trocaSplit = gsap.timeline({
-            scrollTrigger: {
-                trigger: begonhaSectionRef.current,
-                start: "bottom 20%",
-                end: "bottom top",
-                scrub: 1,
-                markers: false
-            },
-        })
-            .fromTo(
-                splitImage2Ref.current,
-                { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" },
-                {
-                    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-                    duration: 1,
-                    ease: "power2.inOut",
-                }
-            )
+        
 
         gsap.timeline({
             scrollTrigger: {
@@ -142,19 +133,34 @@ const SplitScreen = () => {
                 { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", duration: 1, ease: "power2.inOut" }
             );
 
-        gsap.fromTo(
-            particlesRef.current,
-            { opacity: 1 },
-            {
-                opacity: 0,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: realizandoRef.current, // agora segue até o fim da seção funkson
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: true,
-                },
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: realizandoRef.current,
+                start: "bottom center",
+                end: "bottom 30%",
+                scrub: 1.5,
+                markers: false,
             }
+        }).from(porscheCtaRef.current, {
+            opacity: 0,
+            y: 100,
+
+        }).fromTo(splitImage4Ref.current,
+            { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" },
+            { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", duration: 1, ease: "power2.inOut" }
+        );
+
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: porscheCtaRef.current,
+                start: "bottom center",
+                end: "bottom 20%",
+                scrub: 1.5,
+                markers: true,
+            }
+        }).fromTo(splitImage5Ref.current,
+            { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" },
+            { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", duration: 1, ease: "power2.inOut" }
         );
 
 
@@ -214,6 +220,21 @@ const SplitScreen = () => {
                                 clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
                             }}
                         />
+                        <img
+                            ref={splitImage4Ref}
+                            src="images/dentro-porshe.png"
+                            alt="porshe"
+                            className="absolute top-0 left-0 w-full h-full object-cover"
+                            style={{
+                                clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
+                            }}
+                        />
+                        <img ref={splitImage5Ref}
+                            src="images/dentro-mustang.png"
+                            alt="mustang"
+                            className="absolute top-0 left-0 w-full h-full object-cover"
+                            style={{ clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)" }} />
+
                     </div>
 
                 </section>
@@ -354,16 +375,68 @@ const SplitScreen = () => {
                                 felicidade transborda. É aí que{" "}
                                 <span className="text-white">todo esforço faz sentido</span>.
                             </p>
+                        </div>
+
+
+                        <div ref={porscheCtaRef} id="porsche-cta" className="h-screen flex flex-col scale items-center justify-center text-center relative -ml-20">
+
+                            <div className="relative z-10 scale-130 flex flex-col items-center text-center">
+
+                                <h1 className="font-gothic text-9xl text-white tracking-wider relative z-10">
+                                    PORSCHE <span className="text-[#006dff]">718</span>
+                                </h1>
+
+                                <div className="relative w-full flex justify-center">
+                                    <img
+                                        src="images/porshe718.png"
+                                        alt="Porsche 718 Caymann"
+                                        className="absolute top-[-9rem] z-20 max-w-xl"
+                                    />
+                                </div>
+
+                                <h1 className="font-bebas text-9xl text-white tracking-wider relative z-10 mt-[6rem]">
+                                    CAYMANN
+                                </h1>
+
+                                <button className="bg-[#1a1a1a] text-[#006dff] py-3 px-10 rounded-full mt-6 uppercase font-bold text-sm hover:bg-gray-800 transition-colors duration-300 border border-gray-700">
+                                    Saiba Mais
+                                </button>
+                            </div>
 
                         </div>
 
-                    </div>
+                        <div
+                            ref={mustangCtaRef}
+                            id="mustang-cta"
+                            className="h-screen flex flex-col items-center justify-center text-center relative -ml-20 overflow-hidden"
+                        >
+                            <div className="relative z-10 flex flex-col items-center text-center scale-[1.3]">
+                                <h1 className="font-gothic text-9xl text-white tracking-wider relative z-10">
+                                    FORD
+                                </h1>
 
-                </div>
+                                <div className="relative w-full flex justify-center">
+                                    <img
+                                        src="images/mustang.png"
+                                        alt="Mustang GT"
+                                        className="absolute top-[-9rem] z-20 max-w-xl"
+                                    />
+                                </div>
 
-            </div>
+                                <h1 className="font-bebas text-9xl text-[#ec0000] tracking-wider relative z-10 mt-[5rem]">
+                                    MUSTANG GT
+                                </h1>
 
-            <style jsx>{`
+                                <button className="bg-[#171212] text-[#ec0000] py-3 px-10 rounded-full mt-6 uppercase font-bold text-sm hover:bg-[#2c0000] transition-colors duration-300 border border-[#540404]">
+                                    Saiba Mais
+                                </button>
+                            </div>
+                        </div>
+
+
+
+
+                        <style jsx>{`
                 @keyframes float {
                     0%, 100% { transform: translateY(0) translateX(0); }
                     25% { transform: translateY(-30px) translateX(20px); }
@@ -371,6 +444,9 @@ const SplitScreen = () => {
                     75% { transform: translateY(-30px) translateX(20px); }
                 }
             `}</style>
+                    </div>
+                </div>
+            </div>
         </>
     );
 };
