@@ -20,6 +20,7 @@ const App = () => {
       <div className='pt-[500px]'>< Apresentation /></div>
       <Split />
       <Dream />
+      <Contact />
     </main>
 
   );

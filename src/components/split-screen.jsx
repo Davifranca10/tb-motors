@@ -137,15 +137,14 @@ const SplitScreen = () => {
 
         gsap.timeline({
             scrollTrigger: {
-                trigger: porscheCtaRef.current,
-                start: "center bottom",
-                end: "center 60%",
+                trigger: realizandoRef.current,
+                start: "bottom 25%",
+                end: "bottom 10%",
                 scrub: 1,
                 markers: false,
             }
         }).from(porscheCtaRef.current, {
             opacity: 0.2,
-            yPercent: 20,
             
 
         }).fromTo(splitImage4Ref.current,
@@ -386,7 +385,7 @@ const SplitScreen = () => {
                         </div>
 
 
-                        <div ref={porscheCtaRef} id="porsche-cta" className="h-screen flex flex-col scale items-center justify-center text-center relative -ml-20">
+                        <div ref={porscheCtaRef} id="porsche-cta" className="pt-30 h-screen flex flex-col scale items-center justify-center text-center relative -ml-20">
 
                             <div className="relative z-10 scale-130 flex flex-col items-center text-center">
 

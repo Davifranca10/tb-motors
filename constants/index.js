@@ -39,9 +39,29 @@ const dreamsData = [
 	},
 ];
 
+const contato = [
+	{
+		id: 'telefone',
+		title: 'Telefone',
+		description: '(47) 98853-6476'
+	},
+	{
+		id: 'instagram',
+		title: 'Instagram',
+		description: '@tb_motors_sc'
+	},
+	{
+		id: 'email',
+		title: 'E-mail',
+		description: 'thiagodvd@yahoo.com.br'
+	}
+];
+
+
 
 export {
 	navLinks,
 	percentage,
-	dreamsData
+	dreamsData,
+	contato
 };

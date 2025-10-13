@@ -76,7 +76,7 @@ const Dreams = () => {
                                     </p>
 
                                     <p
-                                        className={`text-3xl font-medium w-1/2 text-right transition-colors duration-300 font-poppins ${hoveredIndex === index ? dream.color : 'text-yellow-400'
+                                        className={`text-3xl font-bold w-1/2 text-right transition-colors duration-300 font-poppins ${hoveredIndex === index ? dream.color : 'text-white'
                                             }`}
                                     >
                                         {dream.customer}
