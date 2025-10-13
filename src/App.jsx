@@ -8,6 +8,7 @@ import Apresentation from './components/apresentation.jsx';
 import Split from './components/split-screen.jsx';
 import Dream from './components/dreams.jsx';
 import Contact from './components/contact.jsx';
+import Location from './components/location.jsx';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -21,6 +22,7 @@ const App = () => {
       <Split />
       <Dream />
       <Contact />
+      <Location />
     </main>
 
   );

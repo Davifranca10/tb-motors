@@ -89,7 +89,7 @@ const Contact = () => {
 
                 <div id='contact' className="text-center z-10 w-full px-4">
                     <p className="fade-in-item text-base sm:text-lg md:text-2xl font-medium text-gray-300 font-moda">
-                        Por favor, entre em contato através deste endereço para discutir suas necessidades.
+                        Por favor, entre em contato através de algum destes endereços para entrar em contato conosco.
                     </p>
 
                     <div className="fade-in-item my-10 flex items-center justify-center space-x-10 ">
@@ -170,31 +170,18 @@ const Contact = () => {
                 </div>
 
             </section>
-            <div className="marquee-container overflow-hidden -mt-190 ">
+            <div className="marquee-container relative overflow-hidden -mt-20">
+                {/* Conteúdo da marquee */}
                 <div className="animate-marquee flex">
-                    <img
-                        src="images/marcas.png"
-                        alt="Marcas"
-                        className="h-[100rem] object-contain self-start"
-                    />
-                    <img
-                        src="images/marcas.png"
-                        alt="Marcas"
-                        className="h-[100rem] object-contain  self-start"
-                    />
-                    <img
-                        src="images/marcas.png"
-                        alt="Marcas"
-                        className="h-[100rem] object-contain  self-start"
-                    />
-                    <img
-                        src="images/marcas.png"
-                        alt="Marcas"
-                        className="h-[100rem] object-contain  self-start"
-                    />
+                    <img src="images/marcas.png" alt="Marcas" className="h-[15rem] object-contain self-start" />
+                    <img src="images/marcas.png" alt="Marcas" className="h-[15rem] object-contain self-start" />
+                    <img src="images/marcas.png" alt="Marcas" className="h-[15rem] object-contain self-start" />
+                    <img src="images/marcas.png" alt="Marcas" className="h-[15rem] object-contain self-start" />
                 </div>
 
-
+                {/* Gradiente nas laterais */}
+                <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent pointer-events-none z-10"></div>
+                <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent pointer-events-none z-10"></div>
             </div>
 
 

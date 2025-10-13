@@ -41,7 +41,7 @@ const Dreams = () => {
                     {dreamsData.map((dream, index) => (
                         <div
                             key={index}
-                            className={`transition-all duration-500 ease-in-out ${hoveredIndex === index ? 'flex-[2]' : hoveredIndex !== null ? 'flex-[0.5]' : 'flex-1'
+                            className={`transition-all duration-500 ease-in-out ${hoveredIndex === index ? 'flex-[2]' : hoveredIndex !== null ? 'flex-[0.8]' : 'flex-1'
                                 }`}
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
