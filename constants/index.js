@@ -12,7 +12,36 @@ const percentage = [
 	{ id: 'confianca', title: 'Confiança', description: 'Mais do que negócios, construímos relações. Cada negociação é baseada em respeito, credibilidade e compromisso com o cliente.' }
 ];
 
+const dreamsData = [
+	{
+		image: 'images/dream1.png',
+		carInfo: 'DUCATI PANIGALE V4S 2021',
+		customer: 'RICARDO',
+		color: 'text-red-500',
+		span: 'PANIGALE',
+
+	},
+	{
+		image: 'images/dream2.png',
+		carInfo: 'PORSCHE CAYMAN 718 2024',
+		customer: 'CLEISON',
+		color: 'text-blue-500',
+		span: 'CAYMAN',
+
+	},
+	{
+		image: 'images/dream3.png',
+		carInfo: 'AUDI Q3 S-LINE 2018',
+		customer: 'EGON',
+		color: 'text-gray-400',
+		span: 'Q3',
+
+	},
+];
+
+
 export {
 	navLinks,
-	percentage
+	percentage,
+	dreamsData
 };

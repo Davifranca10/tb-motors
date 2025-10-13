@@ -119,6 +119,8 @@ const SplitScreen = () => {
 
         
 
+
+
         gsap.timeline({
             scrollTrigger: {
                 trigger: begonhaSectionRef.current,
@@ -135,15 +137,16 @@ const SplitScreen = () => {
 
         gsap.timeline({
             scrollTrigger: {
-                trigger: realizandoRef.current,
-                start: "bottom center",
-                end: "bottom 30%",
-                scrub: 1.5,
+                trigger: porscheCtaRef.current,
+                start: "center bottom",
+                end: "center 60%",
+                scrub: 1,
                 markers: false,
             }
         }).from(porscheCtaRef.current, {
-            opacity: 0,
-            y: 100,
+            opacity: 0.2,
+            yPercent: 20,
+            
 
         }).fromTo(splitImage4Ref.current,
             { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" },
@@ -156,9 +159,14 @@ const SplitScreen = () => {
                 start: "bottom center",
                 end: "bottom 20%",
                 scrub: 1.5,
-                markers: true,
+                markers: false,
             }
-        }).fromTo(splitImage5Ref.current,
+        }).from(mustangCtaRef.current, {
+            opacity: 0.2,
+            yPercent: 20,
+
+        })
+        .fromTo(splitImage5Ref.current,
             { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" },
             { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", duration: 1, ease: "power2.inOut" }
         );
@@ -239,7 +247,7 @@ const SplitScreen = () => {
 
                 </section>
 
-                <div className="w-[110%] h-0.5  -ml-10 bg-gradient-to-r from-[#000000] via-[#1d1600] to-[#ffc400]"></div>
+                <div className="w-[110%] h-0.5  -ml-10 bg-gradient-to-r from-[#000000] via-[#1d1600] to-[#ff0000]"></div>
 
 
                 {/* --- CONTEÚDO --- */}
