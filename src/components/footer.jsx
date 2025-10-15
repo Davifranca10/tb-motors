@@ -1,6 +1,8 @@
 
 import React, { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
+import { FaInstagram, FaFacebook, FaWhatsapp, FaEnvelope } from 'react-icons/fa';
+
 import gsap from 'gsap';
 
 const Footer = () => {

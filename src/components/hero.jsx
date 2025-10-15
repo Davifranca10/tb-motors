@@ -71,35 +71,62 @@ const Hero = () => {
     }, []);
 
     return (
+        <div id='home' className="relative w-screen h-screen overflow-hidden z-10">
 
-        <div id='home' className="relative w-screen h-screen overflow-hidden brightness-0.9 z-1">
-            <video id='video-drone' autoPlay loop muted className="object-cover brightness-80 w-full h-full">
-                <source src="videos/8.mp4" media="(min-width: 768px)" type="video/mp4" />
-                <source src="videos/drone-mobile.mp4" media="(max-width: 767px)" type="video/mp4" />
-                Seu navegador não suporta a tag de vídeo.
-            </video>
+            {/* ===== MOBILE HERO ===== */}
+            <section className="lg:hidden w-full h-full relative ">
+                <div className="absolute inset bg-transparent"></div>
+                <video id='video-drone' autoPlay loop muted className="absolute top-0 left-0 w-full h-4/5 object-cover brightness-90">
+                    <source src="videos/hero-mobile.mp4" type="video/mp4" />
+                </video>
 
-            <div className="font-poppins absolute inset-0 flex items-center justify-center -mt-45 z-20">
-                <h1 id='hero-title' className="absolute text-[10rem] text-white font-medium [letter-spacing:0.08em]">
-                    <span className='orange'>TB</span>MOTORS
-                </h1>
-                <p id='subtitle-hero' className='font-poppins absolute mt-35 text-[20px] [letter-spacing:0.3em]'>
-                    <span className='orange'>EXCLUSIVIDADE</span> EM MOVIMENTO
-                </p>
-                <p id='sub2-hero' className='font-poppins absolute text-[20px] bottom-45 [letter-spacing:0.4em]'>
-                    NÃO PERCA ESSA <span className='orange'>OPORTUNIDADE!</span>
-                </p>
-            </div>
+                <div className="relative z-10 h-full flex flex-col items-center justify-center text-white text-center">
+                    <h1 id='hero-title' className="font-bebas text-8xl font-bold  tracking-[.05em]"><span className='orange'>TB</span>MOTORS</h1>
+                    <p id='subtitle-hero' className='font-poppins text-xs tracking-[.3em] pb-50 mt-2'><span className='orange'>EXCLUSIVIDADE</span> EM MOVIMENTO</p>
+                    <p id='sub2-hero' className='font-poppins text-xs tracking-[.4em] absolute bottom-[22%]'>NÃO PERCA ESSA <span className='orange'>OPORTUNIDADE!</span></p>
+                </div>
 
-            <button
-                id='down-button'
-                onClick={() => document.getElementById('container1-apresentation')?.scrollIntoView({ behavior: 'smooth' })}
-                className="circle absolute bottom-40 right-1/20 -translate-x-1/2 z-50 opacity-0"
-            >
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                </svg>
-            </button>
+                <button
+                    id='down-button'
+                    onClick={() => document.getElementById('container1-apresentation')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="circle absolute bottom-[11%] left-[45%] md:left-[47%] translate-x-[-50%] z-20 opacity-100"
+                >
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+            </section>
+
+            {/* ===== DESKTOP HERO ===== */}
+            <section className="hidden lg:block w-full h-full relative">
+                <video id='video-drone' autoPlay loop muted className="object-cover brightness-90 w-full h-full">
+                    <source src="videos/8.mp4" type="video/mp4" />
+                </video>
+
+                <div className="font-bebas absolute inset-0 flex items-center justify-center z-20 -mt-45">
+                    <h1 id='hero-title' className="text-5xl lg:text-[10rem] absolute text-white font-medium [letter-spacing:0.08em]">
+                        <span className='orange'>TB</span>MOTORS
+                    </h1>
+                    <p id='subtitle-hero' className='font-poppins absolute mt-35 text-[20px] [letter-spacing:0.3em]'>
+                        <span className='orange'>EXCLUSIVIDADE</span> EM MOVIMENTO
+                    </p>
+                    <p id='sub2-hero' className='font-poppins absolute text-[20px] bottom-45 [letter-spacing:0.4em]'>
+                        NÃO PERCA ESSA <span className='orange'>OPORTUNIDADE!</span>
+                    </p>
+                </div>
+
+                {/* Botão */}
+                <button
+                    id='down-button'
+                    onClick={() => document.getElementById('container1-apresentation')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="circle absolute bottom-40 right-1/20 -translate-x-1/2 z-50 opacity-0"
+                >
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+            </section>
+
         </div>
     );
 };

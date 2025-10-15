@@ -76,6 +76,11 @@
         @apply flex items-center justify-center w-16 h-16 rounded-full bg-white/30 backdrop-blur-md hover:bg-white/50 hover:scale-110 transition duration-300;
     }
 
+    @utility stylesopen {
+        clip-path: inset(0 100% 0 0);
+    }
+
+
 
     @utility text-ao-redor {
         color: transparent;
@@ -96,7 +101,7 @@
         mask-size: 50%;
     }
 
-    
+
 
     @layer components {
 
@@ -174,7 +179,7 @@
         }
     }
 
-    
+
 
     @keyframes marquee {
         0% {
@@ -185,8 +190,8 @@
             transform: translateX(-50%);
         }
     }
-   
-.animate-marquee {
+
+    .animate-marquee {
         display: flex;
         width: max-content;
         /* deixa a largura do conteúdo natural */

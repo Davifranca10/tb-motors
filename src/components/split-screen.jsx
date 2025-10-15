@@ -56,7 +56,7 @@ const SplitScreen = () => {
             scrollTrigger: {
                 trigger: sectionRef.current,
                 start: "top top",
-                end: "+=550%",
+                end: "+=700%",
                 pin: true,
                 scrub: true,
                 anticipatePin: 1,
@@ -185,7 +185,7 @@ const SplitScreen = () => {
                     {[...Array(30)].map((_, i) => (
                         <div
                             key={i}
-                            className="absolute w-1 h-1 bg-orange-400 rounded-full opacity-20"
+                            className="absolute w-1 h-1 bg-orange-400 rounded-full opacity-40"
                             style={{
                                 left: `${Math.random() * 100}%`,
                                 top: `${Math.random() * 100}%`,
@@ -258,6 +258,8 @@ const SplitScreen = () => {
                         ref={contentRef}
                         className="font-poppins w-[100vw] text-gray-200 mt-50  tracking-wider "
                     >
+                        <div className="w-[60vw] h-[80vw]"></div>
+
                         <div id="title">
                             <h2 className="font-bebas text-[180px] font-bold  orange mb-6 text-center">
                                 <span className="text-white">QUEM</span> SOMOS

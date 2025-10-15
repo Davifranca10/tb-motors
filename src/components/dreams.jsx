@@ -20,7 +20,7 @@ const Dreams = () => {
                 scrollTrigger: {
                     trigger: paralaxRef.current,
                     start: "top center",
-                    end: "40% center",
+                    end: "30% center",
                     markers: false,
                     scrub: 2,
                 },
