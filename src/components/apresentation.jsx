@@ -35,17 +35,54 @@ const Apresentation = () => {
             x: `${(sections.length - 1) * -100}vw`,
         });
 
-        gsap
-            .timeline({
-                scrollTrigger: {
-                    trigger: "#about",
-                    start: "top bottom",
-                    end: "top 80%",
-                    scrub: 1,
-                    markers: false,
+        const ctx = gsap.context(() => {
+            // Usa matchMedia do GSAP para definir animações diferentes por breakpoint
+            ScrollTrigger.matchMedia({
+                // ======== DESKTOP ========
+                "(min-width: 1024px)": function () {
+                    gsap.timeline({
+                        scrollTrigger: {
+                            trigger: "#about",
+                            start: "top bottom",
+                            end: "top 80%",
+                            scrub: 1,
+                            markers: false,
+                        },
+                    })
+                        .to("#about", { yPercent: -562.331, ease: "power1.inOut" });
                 },
-            })
-            .to("#about", { yPercent: -562.331, ease: "power1.inOut" });
+
+                // ======== Table ========
+                "(min-width: 770px) and (max-width: 1023px)": function () {
+                    gsap.timeline({
+                        scrollTrigger: {
+                            trigger: "#about",
+                            start: "top bottom",
+                            end: "top 80%",
+                            scrub: 1,
+                            markers: false,
+                        },
+                    })
+                        .to("#about", { yPercent: -580, ease: "power1.inOut" });
+                },
+
+                // ======== MOBILE ========
+                "(max-width: 669px)": function () {
+                    gsap.timeline({
+                        scrollTrigger: {
+                            trigger: "#about",
+                            start: "-90% bottom",
+                            end: "-90% 70%",
+                            scrub: 1,
+                            markers: false,
+                        },
+                    })
+                        .to("#about", { yPercent: -400, ease: "power1.out" });
+                },
+            });
+        }, sliderRef);
+
+
 
         const titles = gsap.timeline({
             scrollTrigger: {
@@ -120,8 +157,8 @@ const Apresentation = () => {
         });
 
         cont2.to("#container2", { yPercent: 60, ease: "power1.inOut" }, 0)
-        cont2.to("#tb2", { scale:0.8, ease: "power1.inOut" }, 0);
-        cont2.to("#subtitle-container2", {scale:1.2, letterSpacing: "0.1em", ease: "power1.inOut" }, 0)
+        cont2.to("#tb2", { scale: 0.8, ease: "power1.inOut" }, 0);
+        cont2.to("#subtitle-container2", { scale: 1.2, letterSpacing: "0.1em", ease: "power1.inOut" }, 0)
 
         return () => ScrollTrigger.killAll();
     }, []);
@@ -133,10 +170,11 @@ const Apresentation = () => {
         <div id="container1-apresentation" ref={sliderRef} className="flex relative ">
             {/* Container 1 */}
             <div id="about-div" className="absolute w-full -translate-y-190">
-                <h2 className="font-bebas font-extrabold text-[#7A7A7A] text-center text-9xl opacity-70 tracking-wide">TBMOTORS</h2>
+                <h2 id="desktop" className="font-bebas font-extrabold text-[#7A7A7A] text-center text-8xl md:text-9xl -translate-y-0 md:-translate-0 opacity-70 tracking-wide">TBMOTORS</h2>
 
 
-                <h1 id="about" className="font-poppins font-extralight text-6xl text-center translate-y-60">O que nossa loja oferece?</h1>
+                <h1 id="about" className="font-poppins font-extralight text-6xl text-center translate-y-90 md:translate-y-60">O que nossa loja oferece?</h1>
+
             </div>
             <div
                 ref={(el) => (sectionsRef.current[0] = el)}

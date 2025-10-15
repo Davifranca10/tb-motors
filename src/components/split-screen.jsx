@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
@@ -11,6 +11,7 @@ const SplitScreen = () => {
     const imageRef = useRef(null);
     const contentRef = useRef(null);
     const particlesRef = useRef(null);
+
 
 
     const [hoveredIndex, setHoveredIndex] = useState(0);
@@ -33,7 +34,7 @@ const SplitScreen = () => {
     const mustangCtaRef = useRef(null);
 
 
-
+  
 
 
     useGSAP(() => {
@@ -117,7 +118,7 @@ const SplitScreen = () => {
             );
         });
 
-        
+
 
 
 
@@ -145,7 +146,7 @@ const SplitScreen = () => {
             }
         }).from(porscheCtaRef.current, {
             opacity: 0.2,
-            
+
 
         }).fromTo(splitImage4Ref.current,
             { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" },
@@ -165,10 +166,10 @@ const SplitScreen = () => {
             yPercent: 20,
 
         })
-        .fromTo(splitImage5Ref.current,
-            { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" },
-            { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", duration: 1, ease: "power2.inOut" }
-        );
+            .fromTo(splitImage5Ref.current,
+                { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" },
+                { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", duration: 1, ease: "power2.inOut" }
+            );
 
 
 
@@ -177,15 +178,13 @@ const SplitScreen = () => {
     return (
         <>
             <div className="relative">
-                {/* Grid de fundo sutil */}
-                <div className="fixed inset-0 bg-[linear-gradient(rgba(228,140,8,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(228,140,8,0.03)_1px,transparent_1px)] bg-[size:100px_100px] pointer-events-none z-0"></div>
 
                 {/* Partículas flutuantes */}
                 <div ref={particlesRef} className="fixed inset-0 pointer-events-none overflow-hidden z-0">
                     {[...Array(30)].map((_, i) => (
                         <div
                             key={i}
-                            className="absolute w-1 h-1 bg-orange-400 rounded-full opacity-40"
+                            className="absolute w-1 h-1 bg-orange-400 rounded-full opacity-20"
                             style={{
                                 left: `${Math.random() * 100}%`,
                                 top: `${Math.random() * 100}%`,
