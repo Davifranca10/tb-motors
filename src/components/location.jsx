@@ -18,9 +18,10 @@ const Location = () => {
             scrollTrigger: {
                 trigger: container.current,
                 start: 'top top',
-                end: 'bottom bottom',
+                end: 'bottom center',
                 scrub: 1.2,
                 pin: true,
+                markers:false
             },
         });
 
@@ -56,7 +57,7 @@ const Location = () => {
     return (
         <section
             ref={container}
-            className="relative h-[220vh] bg-black text-white font-serif overflow-hidden"
+            className="relative h-[140vh] bg-black text-white font-serif overflow-hidden"
         >
             <div className="sticky top-0 h-screen flex flex-col justify-center items-center">
 

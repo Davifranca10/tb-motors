@@ -71,16 +71,16 @@ const Hero = () => {
     }, []);
 
     return (
-        //h-[85vh] estava antes
+
         <div id='home' className="relative w-screen h-screen overflow-hidden brightness-0.9 z-1">
-            <video id='video-drone' autoPlay loop muted className="object-cover w-full h-full">
-                <source src="videos/drone-desktop.mp4" media="(min-width: 768px)" type="video/mp4" />
+            <video id='video-drone' autoPlay loop muted className="object-cover brightness-80 w-full h-full">
+                <source src="videos/8.mp4" media="(min-width: 768px)" type="video/mp4" />
                 <source src="videos/drone-mobile.mp4" media="(max-width: 767px)" type="video/mp4" />
                 Seu navegador não suporta a tag de vídeo.
             </video>
 
-            <div className="font-bebas absolute inset-0 flex items-center justify-center -mt-100 z-20">
-                <h1 id='hero-title' className="absolute text-[10rem] text-white font-bold [letter-spacing:0.05em]">
+            <div className="font-poppins absolute inset-0 flex items-center justify-center -mt-45 z-20">
+                <h1 id='hero-title' className="absolute text-[10rem] text-white font-medium [letter-spacing:0.08em]">
                     <span className='orange'>TB</span>MOTORS
                 </h1>
                 <p id='subtitle-hero' className='font-poppins absolute mt-35 text-[20px] [letter-spacing:0.3em]'>

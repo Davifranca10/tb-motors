@@ -96,8 +96,7 @@
         mask-size: 50%;
     }
 
-
-
+    
 
     @layer components {
 
@@ -175,12 +174,7 @@
         }
     }
 
-    .animate-marquee {
-        display: flex;
-        width: max-content;
-        /* deixa a largura do conteúdo natural */
-        animation: marquee 50s linear infinite;
-    }
+    
 
     @keyframes marquee {
         0% {
@@ -192,6 +186,12 @@
         }
     }
    
+.animate-marquee {
+        display: flex;
+        width: max-content;
+        /* deixa a largura do conteúdo natural */
+        animation: marquee 50s linear infinite;
+    }
 
     /* Container pai */
     .marquee-container {
