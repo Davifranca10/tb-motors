@@ -8,6 +8,8 @@ gsap.registerPlugin(ScrollTrigger);
 const Apresentation = () => {
     const sliderRef = useRef(null);
     const sectionsRef = useRef([]);
+    const isMobile = window.innerWidth <= 768;
+
 
     useGSAP(() => {
         const slider = sliderRef.current;
@@ -32,7 +34,7 @@ const Apresentation = () => {
         });
 
         sliderTl.to(slider, {
-            x: `${(sections.length - 1) * -100}vw`,
+            x: `${(sections.length - 1) * (isMobile ? -170 : -100)}vw`,
         });
 
         const ctx = gsap.context(() => {
@@ -79,6 +81,8 @@ const Apresentation = () => {
                     })
                         .to("#about", { yPercent: -400, ease: "power1.out" });
                 },
+
+
             });
         }, sliderRef);
 
@@ -170,57 +174,66 @@ const Apresentation = () => {
         <div id="container1-apresentation" ref={sliderRef} className="flex relative ">
             {/* Container 1 */}
             <div id="about-div" className="absolute w-full -translate-y-190">
-                <h2 id="desktop" className="font-bebas font-extrabold text-[#7A7A7A] text-center text-8xl md:text-9xl -translate-y-0 md:-translate-0 opacity-70 tracking-wide">TBMOTORS</h2>
+                <h2 id="desktop" className="font-bebas font-extrabold text-[#7A7A7A] text-center text-8xl xl:text-9xl -translate-y-0 xl:-translate-0 opacity-70 tracking-wide">TBMOTORS</h2>
 
 
-                <h1 id="about" className="font-poppins font-extralight text-6xl text-center translate-y-90 md:translate-y-60">O que nossa loja oferece?</h1>
+                <h1 id="about" className="font-poppins font-extralight text-6xl text-center translate-y-90 xl:translate-y-60">O que nossa loja oferece?</h1>
 
             </div>
             <div
                 ref={(el) => (sectionsRef.current[0] = el)}
-                className="min-w-screen h-[100vh] -bottom-50 bg-black relative flex items-center justify-center font-poppins "
+                className="min-w-screen h-[70vh] xl:h-[100vh] -bottom-50  bg-black relative flex items-center justify-center font-poppins "
             >
 
-                <video id="exclusividade"
+                <video
+                    id="exclusividade"
                     src="videos/apresentation1.mp4"
                     autoPlay
                     loop
                     muted
-                    className="absolute w-[1000px] h-auto rounded-4xl shadow-lg translate-y-50 opacity-0"
+                    className="absolute w-full max-w-[90%] mt-[80%] rounded-4xl shadow-lg opacity-0
+               xl:max-w-[100%] xl:w-[1000px] xl:mt-0 xl:h-auto xl:translate-y-[50%]"
                 />
-                <h1 id="title-exclusividade" className="z-20 absolute text-ao-redor text-7xl font-extrabold text-center opacity-90 ">
+                <h1
+                    id="title-exclusividade"
+                    className="z-20 absolute text-ao-redor mt-[90%] xs1:mt-[40%] xl:mt-0 text-5xl xl:text-7xl font-extrabold text-center opacity-90"
+                >
                     EXCLUSIVIDADE
                 </h1>
 
 
 
-                <div id="eleganciadiv" className="absolute top-10 right-[1180px]   ">
-                    <div className="relative translate-x-20">
+                <div id="eleganciadiv" className="absolute top-10 xs2:top-5 xl:top-0 md:top-40 md:-translate-x-15 md:right-[300px] xl:right-[1180px]   ">
+                    <div className="relative flex items-center justify-center">
                         <video
                             id="elegancia"
                             src="videos/apresentation2.mp4"
                             autoPlay
                             loop
                             muted
-                            className="w-[700px] h-auto object-cover rounded-xl shadow-lg  opacity-0 relative z-0"
+                            className="w-[1000px] max-w-[90%] xs:max-w-[70%] xl:w-[700px] h-auto object-cover rounded-xl shadow-lg  opacity-0 relative z-0  
+                            "
                         />
-                        <span id="title-elegancia" className="absolute inset-0 flex items-center justify-center text-white text-7xl font-bold opacity-70 z-10">
+                        <span id="title-elegancia" className="absolute top-48 xs1:top-0 xl:top-0 inset-0 flex items-center justify-center text-white text-5xl font-bold opacity-70 z-10">
                             ELEGÂNCIA
                         </span>
                     </div>
                 </div>
 
-                <div id="paixaodiv" className="absolute bottom-10 left-[1180px] translate-y-50 ">
-                    <div className="relative">
+                <div id="paixaodiv" className="absolute xl:bottom-10 xl:left-[1180px] md:translate-x-15 md:left-[300px]  translate-y-50">
+                    <div className="relative flex items-center justify-center">
                         <video
                             id="paixao"
                             src="videos/apresentation3.mp4"
                             autoPlay
                             loop
                             muted
-                            className="w-[700px] h-auto object-cover rounded-xl shadow-lg -translate-y-50 opacity-0"
+                            className="w-[1000px] max-w-[90%] xs:max-w-[70%] xl:w-[700px] h-auto object-cover rounded-xl shadow-lg -translate-y-50 opacity-0"
                         />
-                        <span id="title-paixao" className="absolute font-bold inset-0 flex items-start justify-center text-white text-7xl opacity-70">
+                        <span
+                            id="title-paixao"
+                            className="absolute -top-6 xs1:-top-20 md:-top-[50%] font-bold inset-0 flex items-start justify-center text-white text-5xl xl:text-7xl opacity-70"
+                        >
                             PAIXÃO
                         </span>
                     </div>
@@ -231,21 +244,21 @@ const Apresentation = () => {
             <div
                 id="container2"
                 ref={(el) => (sectionsRef.current[1] = el)}
-                className="min-w-screen h-[100vh] -bottom-50 relative flex flex-col items-center justify-center gap-[-5] bg-black"
+                className="min-w-[100vh] xl:min-w-screen h-[100vh] -bottom-50 relative flex flex-col items-center justify-center gap-[-5] bg-black"
             >
 
 
-                <h1 id="tb1" className="font-poppins font-bold text-[32vh] tracking-wider text-center orange opacity-100">
+                <h1 id="tb1" className="font-poppins font-bold ml-23 xl:ml-0 text-[7vh] xl:text-[32vh] tracking-wider text-center orange opacity-0 xl:opacity-100">
                     TBMOTORS
                 </h1>
-                <h1 id="tb2" className="font-poppins font-bold text-[32vh] tracking-wider text-center orange -mt-50 z-10">
+                <h1 id="tb2" className="font-poppins font-bold ml-23 xl:ml-0 text-[7vh] xl:text-[32vh] tracking-wider text-center orange mt-110 xl:-mt-50 z-10">
                     TBMOTORS
                 </h1>
-                <h1 id="tb3" className="font-poppins font-bold text-[32vh] tracking-wider text-center orange -mt-50 opacity-100">
+                <h1 id="tb3" className="font-poppins font-bold ml-23 xl:ml-0 text-[7vh] xl:text-[32vh] tracking-wider text-center orange -mt-50 opacity-0 xl:opacity-100">
                     TBMOTORS
                 </h1>
-                <h2 id="subtitle-container2" className="font-poppins font-bold text-7xl relative -translate-y-90 opacity-0">
-                    EXCLUSIVIDADE EM MOVIMENTO
+                <h2 id="subtitle-container2" className="font-poppins text-center ml-[10%] :ml-0 font-bold text-2xl xl:text-7xl relative translate-y-25 xl:-translate-y-90 opacity-0">
+                    EXCLUSIVIDADE EM<span className="block xl:inline "> MOVIMENTO</span>
                 </h2>
 
                 <video
@@ -254,7 +267,7 @@ const Apresentation = () => {
                     autoPlay
                     loop
                     muted
-                    className="z-20 absolute top-1/2 transform -translate-y-1/2 w-[900px] h-auto object-cover rounded-xl shadow-lg opacity-100"
+                    className="z-20 absolute top-1/2 transform ml-[10%] xl:ml-0 -translate-y-1/2 w-[300px] xl:w-[900px] h-[500px] xl:h-auto object-cover rounded-xl shadow-lg opacity-100"
                 />
 
             </div>

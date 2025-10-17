@@ -42,6 +42,12 @@
 
     @theme {
         --color-yellow: #e7d393;
+        --breakpoint-xs2: 28rem;
+        --breakpoint-xs: 32rem;
+        --breakpoint-xs1: 37rem;
+        
+
+
         --color-white-100: #efefef;
         --font-sans: "Mona Sans", sans-serif;
         --font-modern-negra: "Modern Negra", sans-serif;
@@ -136,7 +142,52 @@
             /* faz o texto mudar após a linha */
         }
 
+        #paixaodiv {
+            bottom: -7.5rem;
+            /* equivalente a -30 em Tailwind */
+            left: auto;
+            /* padrão */
+        }
 
+        @media (min-width: 415px) {
+            #paixaodiv {
+                bottom: -9rem;
+                /* mais para baixo */
+                left: auto;
+                /* mantém o alinhamento */
+            }
+        }
+
+        @media (min-width: 460px) {
+            #paixaodiv {
+                bottom: -11rem;
+                /* mais para baixo */
+                left: auto;
+                /* mantém o alinhamento */
+            }
+        }
+
+        @media (min-width: 487px) {
+            #paixaodiv {
+                bottom: -12rem;
+                /* mais para baixo */
+                left: auto;
+                /* mantém o alinhamento */
+            }
+        }
+
+
+        #exclusividade {
+            max-width: 90%;
+            /* largura inicial */
+        }
+
+        @media (min-width: 523px) {
+            #exclusividade {
+                max-width: 70%;
+                /* aumenta proporcionalmente */
+            }
+        }
 
 
         main {

@@ -244,6 +244,7 @@ const SplitScreen = () => {
                     </div>
 
                 </section>
+                
 
                 <div className="w-[110%] h-0.5  -ml-10 bg-gradient-to-r from-[#000000] via-[#1d1600] to-[#ff0000]"></div>
 
