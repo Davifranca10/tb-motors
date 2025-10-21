@@ -16,24 +16,30 @@ const Apresentation = () => {
 
         ScrollTrigger.getAll().forEach((st) => st.kill());
 
-        const sliderTl = gsap.timeline({
-            defaults: { ease: "none" },
-            scrollTrigger: {
-                trigger: slider,
-                pin: true,
-                scrub: 2,
-                markers: false,
-                start: "20% 20%",
-                end: () =>
-                    telaAtual > 1024
-                        ? "+=" + slider.offsetWidth * 0.3
-                        : "+=" + slider.offsetWidth * 0.8,
-            },
-        });
+        const ctx1 = gsap.context(() => {
+            ScrollTrigger.matchMedia({
+                "(min-width: 48rem)": function () {
+                    const sliderTl = gsap.timeline({
+                        defaults: { ease: "none" },
+                        scrollTrigger: {
+                            trigger: slider,
+                            pin: true,
+                            scrub: 2,
+                            markers: false,
+                            start: "20% 20%",
+                            end: () =>
+                                telaAtual > 1024
+                                    ? "+=" + slider.offsetWidth * 0.3
+                                    : "+=" + slider.offsetWidth * 0.8,
+                        },
+                    });
 
-        sliderTl.to(slider, {
-            x: `${(sections.length - 1) * -100}vw`,
-        });
+                    sliderTl.to(slider, {
+                        x: `${(sections.length - 1) * -100}vw`,
+                    });
+                },
+            });
+        }, sliderRef);
 
         const ctx = gsap.context(() => {
             // Usa matchMedia do GSAP para definir animações diferentes por breakpoint
@@ -174,7 +180,7 @@ const Apresentation = () => {
 
 
                 <h1 id="about" className="font-poppins font-extralight text-6xl text-center translate-y-90 md:translate-y-60">O que nossa loja oferece?</h1>
-           
+
             </div>
             <div
                 ref={(el) => (sectionsRef.current[0] = el)}
@@ -250,7 +256,7 @@ const Apresentation = () => {
 
                 <video
                     id="video-container2"
-                    src="videos/tbmotors3.mp4"
+                    src="videos/mustaPresentation.mp4"
                     autoPlay
                     loop
                     muted

@@ -13,20 +13,7 @@ const Dreams = () => {
     const paralaxRef = useState(null);
 
 
-        useGSAP(() => {
-
-            gsap.to(paralaxRef.current, {
-                yPercent: -30,
-                scrollTrigger: {
-                    trigger: paralaxRef.current,
-                    start: "top center",
-                    end: "30% center",
-                    markers: false,
-                    scrub: 2,
-                },
-            });
-
-        }, []);
+       
 
 
 
