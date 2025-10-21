@@ -89,7 +89,7 @@ const Hero = () => {
                 <button
                     id='down-button'
                     onClick={() => document.getElementById('container1-apresentation')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="circle absolute bottom-[11%] left-[45%] md:left-[47%] translate-x-[-50%] z-20 opacity-100"
+                    className="circle opacity-100"
                 >
                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />

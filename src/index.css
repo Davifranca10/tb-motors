@@ -79,7 +79,7 @@
     }
 
     @utility circle {
-        @apply flex items-center justify-center w-16 h-16 rounded-full bg-white/30 backdrop-blur-md hover:bg-white/50 hover:scale-110 transition duration-300;
+        @apply flex items-center justify-center w-16 h-16 rounded-full bg-white/30 backdrop-blur-md absolute md:right-[10%] md:bottom-[10%] max-md:top-[86%] max-md:left-[50%] max-md:!-translate-1/2 hover:bg-white/50 hover:scale-110 transition duration-300;
     }
 
     @utility stylesopen {
