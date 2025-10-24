@@ -60,34 +60,51 @@ const MobSplit = () => {
     const dreams = ["porsche", "mustang"];
 
     const handleDreamChange = (nextDream) => {
+        if (nextDream === currentDream) return;
+
         const currentCar = `#${dreams[currentDream]}-cta`;
         const nextCar = `#${dreams[nextDream]}-cta`;
 
         const slideDirection = nextDream > currentDream ? 1 : -1;
 
-        const tl = gsap.timeline();
-        tl.to(currentCar, {
-            xPercent: -100 * slideDirection, 
-            opacity: 0, 
-            duration: 0.7, 
-            ease: 'power3.inOut'
-        })
-        .fromTo(nextCar, 
-            { xPercent: 100 * slideDirection, opacity: 0 },
-            { xPercent: 0, opacity: 1, duration: 0.7, ease: 'power3.inOut' }, 
-            "-=0.5"
-        );
+        const tl = gsap.timeline({
+            onComplete: () => {
+                setCurrentDream(nextDream);
+            }
+        });
 
-        setCurrentDream(nextDream);
+        tl.to(currentCar, {
+            xPercent: -150 * slideDirection,
+            opacity: 0,
+            scale: 0.8,
+            duration: 0.8,
+            ease: 'power3.in'
+        });
+
+        tl.fromTo(nextCar,
+            {
+                xPercent: 150 * slideDirection,
+                opacity: 0,
+                scale: 0.8,
+            },
+            {
+                xPercent: 0,
+                opacity: 1,
+                scale: 1,
+                duration: 0.8,
+                ease: 'power3.out'
+            },
+            "-=0.4"
+        );
     };
 
     const renderContent = () => {
         switch (activeTab) {
             case 'history':
                 return (
-                    <div className="p-6 bg-black text-white">
+                    <div className="p-6 mt-20 bg-black text-white">
                         <h2 className="font-bebas subtitle ">PAIXÃO QUE SE TORNOU NEGÓCIO</h2>
-                        <p className="mb-4 paragraph uppercase pb-10">
+                        <p className="mb-4 paragraph text-xl uppercase pb-10">
                             "Desde pequeno sempre fui fascinado por motores e design automotivo. O que começou como um<span className="orange"> hobby</span> se transformou em uma missão: oferecer <span className="orange">experiências únicas</span> a quem compartilha a mesma <span className="orange">paixão</span> por máquinas de alto desempenho."
                         </p>
                         <div className="w-full h-0.5 bg-gradient-to-r from-[#e48c08] to-[#c57b0b] mt-6 animated-line"></div>
@@ -105,7 +122,7 @@ const MobSplit = () => {
                 return (
                     <div className="p-6 bg-black text-white">
                          <h2 className="pb-10 mt-10 font-poppins subtitle font-light text-4xl whitespace-nowrap">O que nos move?</h2>
-                         <p className="paragraph text-lg pb-10">
+                         <p className="paragraph text-xl pb-10">
                              Acreditamos que <span className="orange font-bold">cada detalhe</span> conta. Buscamos sempre o máximo desempenho — nos veículos, nas entregas e nas experiências que criamos.
                          </p>
                          <div className="mt-6 flex flex-col gap-8 items-start">
@@ -127,16 +144,18 @@ const MobSplit = () => {
                                  ))}
                              </div>
                              <div className="w-full h-auto min-h-[10em]">
-                                 <p className="mb-4 pl-4 pt-4 paragraph text-md text-gray-200 transition-opacity duration-500" key={hoveredIndex}>
+                                 <p className="mb-4 pl-4 pt-4 paragraph text-xl text-md text-gray-200 transition-opacity duration-500" key={hoveredIndex}>
                                      {percentage[hoveredIndex].description}
                                  </p>
                              </div>
+
+                             
                          </div>
                     </div>
                 );
             case 'dreams':
                 return (
-                    <div className="bg-black text-white">
+                    <div className="bg-black text-white pb-12">
                          <div className="p-6">
                             <div className="w-full h-0.5 bg-gradient-to-r from-[#111111] to-[#c57b0b] mt-6 animated-line"></div>
                             <h2 className="text-5xl tracking-wide font-bebas text-center py-8">REALIZANDO SONHOS</h2>
@@ -146,7 +165,7 @@ const MobSplit = () => {
                             </p>
                          </div>
 
-                        <div className="relative w-full h-screen flex items-center justify-center mt-4 overflow-hidden">
+                        <div className="relative w-full h-[60vh] flex items-center justify-center mt-4 overflow-hidden">
                             <div id="porsche-cta" className={`w-full h-full flex flex-col items-center justify-center text-center absolute top-0 left-0 transition-opacity duration-500 ${currentDream === 0 ? 'opacity-100' : 'opacity-0'}`}>
                                 <div className="relative z-10 flex flex-col items-center text-center scale-90">
                                     <h1 className="font-gothic text-8xl text-white tracking-wider">PORSCHE <span className="text-[#006dff]">718</span></h1>
@@ -167,12 +186,28 @@ const MobSplit = () => {
                                     <button className="bg-[#171212] text-[#ec0000] py-3 px-8 rounded-full mt-4 uppercase font-bold text-xs border border-[#540404]">Saiba Mais</button>
                                 </div>
                             </div>
+                        </div>
 
-                            <button onClick={() => handleDreamChange((currentDream - 1 + dreams.length) % dreams.length)} className="absolute left-4 z-30 p-2 bg-white/10 rounded-full backdrop-blur-sm">
-                                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" /></svg>
+                        <div className="flex justify-center items-center gap-4 w-full px-6 pt-8">
+                            <button
+                                onClick={() => handleDreamChange(0)}
+                                className={`flex-1 py-3 text-center font-bold uppercase text-xs rounded-md transition-all duration-300 ${
+                                    currentDream === 0
+                                        ? 'bg-[#1a1a1a] text-[#006dff] border border-gray-700 scale-105'
+                                        : 'bg-transparent text-white border border-gray-500'
+                                }`}
+                            >
+                                Porsche 718
                             </button>
-                            <button onClick={() => handleDreamChange((currentDream + 1) % dreams.length)} className="absolute right-4 z-30 p-2 bg-white/10 rounded-full backdrop-blur-sm">
-                                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
+                            <button
+                                onClick={() => handleDreamChange(1)}
+                                className={`flex-1 py-3 text-center font-bold uppercase text-xs rounded-md transition-all duration-300 ${
+                                    currentDream === 1
+                                        ? 'bg-[#171212] text-[#ec0000] border border-[#540404] scale-105'
+                                        : 'bg-transparent text-white border border-gray-500'
+                                }`}
+                            >
+                                Mustang GT
                             </button>
                         </div>
                     </div>
@@ -187,18 +222,18 @@ const MobSplit = () => {
             <div className="relative">
                 <img src="images/split.png" alt="About us" className="w-full h-auto" />
                 <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                    <h1 className="text-white text-5xl font-bold">About Us</h1>
+                    <h1 className="text-white text-5xl font-poppins font-bold">Sobre Nós</h1>
                 </div>
             </div>
             <div className="flex sticky top-0 z-20">
-                <button onClick={() => setActiveTab('history')} className={`flex-1 p-4 text-center font-bold transition-colors duration-300 ${activeTab === 'history' ? 'bg-white text-black' : 'bg-black text-white border-t border-b border-gray-800'}`}>
-                    History
+                <button onClick={() => setActiveTab('history')} className={`flex-1 p-4 text-center font-bold transition-colors duration-300 ${activeTab === 'history' ? 'bg-[#e1aa26] text-black' : 'bg-black orange border-t border-b border-gray-800'}`}>
+                    História
                 </button>
-                <button onClick={() => setActiveTab('purpose')} className={`flex-1 p-4 text-center font-bold transition-colors duration-300 ${activeTab === 'purpose' ? 'bg-white text-black' : 'bg-black text-white border-t border-b border-gray-800'}`}>
-                    Purpose
+                <button onClick={() => setActiveTab('purpose')} className={`flex-1 p-4 text-center font-bold transition-colors duration-300 ${activeTab === 'purpose' ? 'bg-[#e1aa26] text-black' : 'bg-black orange border-t border-b border-gray-800'}`}>
+                    Propósito
                 </button>
-                <button onClick={() => setActiveTab('dreams')} className={`flex-1 p-4 text-center font-bold transition-colors duration-300 ${activeTab === 'dreams' ? 'bg-white text-black' : 'bg-black text-white border-t border-b border-gray-800'}`}>
-                    Dreams
+                <button onClick={() => setActiveTab('dreams')} className={`flex-1 p-4 text-center font-bold transition-colors duration-300 ${activeTab === 'dreams' ? 'bg-[#e1aa26] text-black' : 'bg-black orange border-t border-b border-gray-800'}`}>
+                    Sonhos
                 </button>
             </div>
             <div ref={contentRef} key={activeTab}>

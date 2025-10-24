@@ -101,11 +101,11 @@ const MobApresentation = () => {
                         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-auto h-auto object-cover brightness-80 opacity-0"
                     />
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
-                        <h1 id="tb1" className="font-poppins font-bold text-[8vh] leading-tight tracking-normal text-center text-white">TBMOTORS</h1>
-                        <h1 id="tb2" className="font-poppins font-bold text-[8vh] leading-tight tracking-normal text-center text-white">TBMOTORS</h1>
-                        <h1 id="tb3" className="font-poppins font-bold text-[8vh] leading-tight tracking-normal text-center text-white">TBMOTORS</h1>
+                        <h1 id="tb1" className="font-poppins font-light text-[8vh] leading-[10px] opacity-50 tracking-normal z-10 text-center text-white">TBMOTORS</h1>
+                        <h1 id="tb2" className="font-poppins font-bold text-[8vh] leading-[60px] tracking-normal text-center z-20 orange">TBMOTORS</h1>
+                        <h1 id="tb3" className="font-poppins font-light text-[8vh] leading-[10px] opacity-50 tracking-normal z-10 text-center text-white">TBMOTORS</h1>
                     </div>
-                    <h2 id="subtitle-container2" className="absolute bottom-45 font-poppins font-bold text-3xl text-center text-white opacity-0">EXCLUSIVIDADE EM MOVIMENTO</h2>
+                    <h2 id="subtitle-container2" className="absolute bottom-45 font-poppins font-light text-3xl text-center text-white opacity-0">EXCLUSIVIDADE EM <span className="orange font-extrabold">MOVIMENTO</span></h2>
                 </div>
             </div>
         </div>
