@@ -58,7 +58,7 @@ const MobApresentation = () => {
         <div id="apresentation-container" className="bg-black">
             <div id="apresentation-slider" className="flex flex-col relative -mt-96">
                 <div id="about-div" className="w-full z-20">
-                    <h2 id="desktop" className="font-bebas font-extrabold text-[#7A7A7A] text-center text-8xl -translate-y-100 opacity-70 tracking-wide">TBMOTORS</h2>
+                    <h2 id="desktop" className="font-bebas font-extrabold text-[#7A7A7A] text-center text-8xl -translate-y-[40vh] opacity-70 tracking-wide">TBMOTORS</h2>
                     <h1 id="about" className="font-poppins font-extralight text-6xl text-center -translate-y-10">O que nossa loja oferece?</h1>
                 </div>
 

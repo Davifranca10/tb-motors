@@ -14,7 +14,7 @@ const percentage = [
 
 const dreamsData = [
 	{
-		image: 'images/dream1.png',
+		image: 'images/dream1.avif',
 		carInfo: 'DUCATI PANIGALE V4S 2021',
 		customer: 'RICARDO',
 		color: 'text-red-500',
@@ -22,7 +22,7 @@ const dreamsData = [
 
 	},
 	{
-		image: 'images/dream2.png',
+		image: 'images/dream2.avif',
 		carInfo: 'PORSCHE CAYMAN 718 2024',
 		customer: 'CLEISON',
 		color: 'text-blue-500',
@@ -30,7 +30,7 @@ const dreamsData = [
 
 	},
 	{
-		image: 'images/dream3.png',
+		image: 'images/dream3.avif',
 		carInfo: 'AUDI Q3 S-LINE 2018',
 		customer: 'EGON',
 		color: 'text-gray-400',
