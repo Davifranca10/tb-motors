@@ -78,24 +78,27 @@ const Contact = () => {
 
             <section
                 ref={container}
-                className="relative min-h-screen bg-black text-white flex flex-col justify-center items-center p-4 sm:p-8 font-serif "
+                className="relative min-h-screen bg-black text-white flex flex-col justify-center items-center p-4 sm:p-8 font-serif max-md:justify-start"
             >
                 <h1
-                    className="vertical-title-animate absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 text-7xl sm:text-8xl md:text-9xl text-white select-none -ml-11 font-moda"
+                    className="vertical-title-animate absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 text-7xl sm:text-8xl md:text-9xl text-white select-none -ml-11 font-moda hidden md:block"
                     style={{ writingMode: 'vertical-rl' }}
                 >
                     CONTATO
                 </h1>
 
                 <div id='contact' className="text-center z-10 w-full px-4">
-                    <p className="fade-in-item text-base sm:text-lg md:text-2xl font-medium text-gray-300 font-moda">
+                    <div className="md:hidden pt-24">
+                        <h1 className="text-7xl font-moda text-white">CONTATO</h1>
+                    </div>
+                    <p className="fade-in-item text-base sm:text-lg md:text-2xl font-medium text-gray-300 font-moda max-md:text-xl max-md:mt-6">
                         Por favor, entre em contato através de algum destes endereços para entrar em contato conosco.
                     </p>
 
-                    <div className="fade-in-item my-10 flex items-center justify-center space-x-10 ">
+                    <div className="fade-in-item my-10 flex items-center justify-center space-x-10 max-md:space-x-2 max-md:my-16 ">
                         <button
                             onClick={handlePrev}
-                            className="text-5xl sm:text-6xl text-white hover:text-[#e48c08] p-8 transition-colors duration-300"
+                            className="text-5xl sm:text-6xl text-white hover:text-[#e48c08] p-8 transition-colors duration-300 max-md:text-3xl max-md:p-2"
                         >
                             <HiOutlineArrowCircleLeft />
                         </button>
@@ -111,7 +114,7 @@ const Contact = () => {
                                         ? `tel:${contato[currentIndex].description.replace(/\D/g, '')}`
                                         : `https://www.instagram.com/${contato[currentIndex].description.replace('@', '')}`
                             }
-                            className="text-3xl sm:text-5xl md:text-7xl break-all font-poppins underline-hover transition-colors duration-300 mx-10"
+                            className="text-3xl sm:text-5xl md:text-7xl font-poppins underline-hover transition-colors duration-300 mx-10 max-md:text-3xl max-md:mx-4 max-md:break-all"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -120,22 +123,22 @@ const Contact = () => {
 
                         <button
                             onClick={handleNext}
-                            className="text-5xl sm:text-6xl text-white hover:text-[#e48c08] transition-colors p-8 duration-300 "
+                            className="text-5xl sm:text-6xl text-white hover:text-[#e48c08] transition-colors p-8 duration-300 max-md:text-3xl max-md:p-2"
                         >
                             <HiOutlineArrowCircleRight />
                         </button>
                     </div>
 
-                    <p className="fade-in-item text-lg sm:text-xl md:text-3xl text-gray-200 font-moda pt-10">
+                    <p className="fade-in-item text-lg sm:text-xl md:text-3xl text-gray-200 font-moda pt-10 max-md:text-2xl">
                         Fale Conosco
                     </p>
 
-                    <div className="fade-in-item flex justify-center items-center space-x-8 sm:space-x-10 mt-6">
+                    <div className="fade-in-item flex justify-center items-center space-x-8 sm:space-x-10 mt-6 max-md:space-x-6">
                         <a
                             href="https://www.instagram.com/tb_motors_sc"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-4xl sm:text-5xl text-white hover:text-[#e48c08] transition-colors duration-300"
+                            className="text-4xl sm:text-5xl text-white hover:text-[#e48c08] transition-colors duration-300 max-md:text-3xl"
                         >
                             <FaInstagram />
                         </a>
@@ -144,7 +147,7 @@ const Contact = () => {
                             href="https://www.facebook.com/thiagobegonhaconsultor"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-4xl sm:text-5xl text-white hover:text-[#e48c08] transition-colors duration-300"
+                            className="text-4xl sm:text-5xl text-white hover:text-[#e48c08] transition-colors duration-300 max-md:text-3xl"
                         >
                             <FaFacebook />
                         </a>
@@ -153,7 +156,7 @@ const Contact = () => {
                             href="https://wa.me/5547988536476" // link direto para WhatsApp
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-4xl sm:text-5xl text-white hover:text-[#e48c08] transition-colors duration-300"
+                            className="text-4xl sm:text-5xl text-white hover:text-[#e48c08] transition-colors duration-300 max-md:text-3xl"
                         >
                             <FaWhatsapp />
                         </a>
@@ -162,7 +165,7 @@ const Contact = () => {
                             href="mailto:thiagodvd@yahoo.com.br"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-4xl sm:text-5xl text-white hover:text-[#e48c08] transition-colors duration-300"
+                            className="text-4xl sm:text-5xl text-white hover:text-[#e48c08] transition-colors duration-300 max-md:text-3xl"
                         >
                             <FaEnvelope />
                         </a>
@@ -173,10 +176,10 @@ const Contact = () => {
             <div className="marquee-container relative overflow-hidden -mt-20">
                 {/* Conteúdo da marquee */}
                 <div className="animate-marquee flex">
-                    <img src="images/marcas.png" alt="Marcas" className="h-[15rem] object-contain self-start" />
-                    <img src="images/marcas.png" alt="Marcas" className="h-[15rem] object-contain self-start" />
-                    <img src="images/marcas.png" alt="Marcas" className="h-[15rem] object-contain self-start" />
-                    <img src="images/marcas.png" alt="Marcas" className="h-[15rem] object-contain self-start" />
+                    <img src="images/marcas.png" alt="Marcas" className="h-[15rem] object-contain self-start max-md:h-[8rem]" />
+                    <img src="images/marcas.png" alt="Marcas" className="h-[15rem] object-contain self-start max-md:h-[8rem]" />
+                    <img src="images/marcas.png" alt="Marcas" className="h-[15rem] object-contain self-start max-md:h-[8rem]" />
+                    <img src="images/marcas.png" alt="Marcas" className="h-[15rem] object-contain self-start max-md:h-[8rem]" />
                 </div>
 
                 {/* Gradiente nas laterais */}

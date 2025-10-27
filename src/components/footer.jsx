@@ -30,21 +30,25 @@ const Footer = () => {
     return (
         <footer ref={container} className="bg-black  text-[#c5a47e] font-serif py-1 px-20">
             <div className="w-full h-[0.5px] bg-[#c5a47e] opacity-40"></div>
-            <div className=" flex justify-between items-center pl-10 pt-8">
-                <div className="text-left w-1/2">
+            <div className=" flex max-md:flex-col justify-between items-center pl-10 pt-8">
+                <div className="text-left w-1/2 max-md:-ml-65">
                     <img src="/images/farol.png" alt="Farol" className="w-35 absolute  ml-3" />
                     <p className="text-[18px] text-white pt-13">VAMOS NEGOCIAR?</p>
-                    <h2 className="text-8xl my-2 -mt-8 leading-35">VENHA<br />FAZER<br />PARTE!</h2>
+                    <h2 className="text-8xl max-md:text-6xl my-2 -mt-8 max-md:mt-0 leading-35 max-md:leading-20 ">VENHA<br />FAZER<br />PARTE!</h2>
                     <div className="mt-5 flex items-center gap-4">
                         <a href="#" className="text-xl">IG</a>
                         <a href="#" className="text-xl">FB</a>
                         <a href="#" className="text-xl">WA</a>
                         <a href="#" className="text-xl">EM</a>
+                        <img src="/images/logotb-rodape.png" alt="TB Motors Logo" className="w-90 scale-150 ml-15 -mt-70 flex-row md:hidden" />
+
                     </div>
+
                 </div>
-                <div className="flex flex-col items-center w-1/2">
-                    <img src="/images/logotb-rodape.png" alt="TB Motors Logo" className="w-90" />
-                    <div className="mt-8 flex pt-10 pl-40 gap-10">
+
+                <div className="flex flex-col items-center w-1/2 max-md:-ml-50">
+                    <img src="/images/logotb-rodape.png" alt="TB Motors Logo" className="w-90 max-md:hidden" />
+                    <div className="mt-8 flex pt-10 pl-40 gap-10 max-md:w-[60vh] max-md:ml-[50%]">
                         <div className="flex flex-col  gap-4">
                             <a href="#" className="nav-item relative overflow-hidden text-sm block">
                                 <span className="original">ENDEREÇO</span>
@@ -76,16 +80,23 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="mt-16">
-                <div className="w-full h-[0.5px] bg-[#c5a47e] opacity-40"></div>
-                <div className="text-center  -pb-10 overflow-hidden">
-                    <h1 className="text-[15vw] font-bold tracking-wider m-0 leading-none">TBMOTORS</h1>
-                    <div className="flex justify-between text-xs">
-                        <span>© 2025 TB Motors. Todos os direitos reservados. Política de Privacidade.</span>
-                        <span>Feito por Davi França</span>
-                    </div>
-                </div>
-            </div>
+          <div className="mt-16">
+  {/* Linha fina */}
+  <div className="w-full h-[0.5px] bg-[#c5a47e] opacity-40"></div>
+
+  {/* Conteúdo centralizado */}
+  <div className="text-center -pb-10 overflow-hidden mt-4">
+    <h1 className="text-[15vw] font-bold tracking-wider m-0 leading-none max-md:text-[10vw]">
+      TBMOTORS
+    </h1>
+
+    {/* Texto inferior */}
+    <div className="flex justify-between text-xs mt-2 max-md:flex-col max-md:space-y-1 max-md:text-center">
+      <span>© 2025 TB Motors. Todos os direitos reservados. Política de Privacidade.</span>
+      <span>Feito por Davi França</span>
+    </div>
+  </div>
+</div>
         </footer>
     );
 };
