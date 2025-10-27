@@ -18,7 +18,7 @@ const MobApresentation = () => {
                     end: "-90% 70%",
                     scrub: 1,
                 },
-            }).to("#about", { yPercent: -400, ease: "power1.out" });
+            }).to("#about", { y: "-55vh", ease: "power1.out" });
 
             ['#exclusividade-section', '#elegancia-section', '#paixao-section'].forEach((section, i) => {
                 gsap.from(section, {

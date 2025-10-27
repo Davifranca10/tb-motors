@@ -165,7 +165,7 @@ const MobSplit = () => {
                             </p>
                         </div>
 
-                        <div className="relative w-full h-[60vh] flex items-center justify-center mt-4 overflow-hidden">
+                        <div className="relative w-full h-[70vh] flex items-center justify-center mt-4 overflow-hidden">
                             <div id="porsche-cta" className={`w-full h-full flex flex-col items-center justify-center text-center absolute top-0 left-0 transition-opacity duration-500 ${currentDream === 0 ? 'opacity-100' : 'opacity-0'}`}>
                                 <div className="relative z-10 flex flex-col items-center text-center scale-90">
                                     <h1 className="font-gothic text-8xl text-white tracking-wider">PORSCHE <span className="text-[#006dff]">718</span></h1>

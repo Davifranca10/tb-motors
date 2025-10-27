@@ -29,7 +29,7 @@ const Footer = () => {
 
     return (
         <footer ref={container} className="bg-black  text-[#c5a47e] font-serif py-1 px-20">
-            <div className="w-full h-[0.5px] bg-[#c5a47e] opacity-40"></div>
+            <div className="w-full h-[0.5px] bg-[#c5a47e] opacity-40 mt-[10vh]"></div>
             <div className=" flex max-md:flex-col justify-between items-center pl-10 pt-8">
                 <div className="text-left w-1/2 max-md:-ml-65">
                     <img src="/images/farol.png" alt="Farol" className="w-35 absolute  ml-3" />

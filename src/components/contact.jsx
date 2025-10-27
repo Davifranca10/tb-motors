@@ -90,7 +90,7 @@ const Contact = () => {
 
                 <div id='contact' className="text-center z-10 w-full px-4">
                     <div className="md:hidden pt-24">
-                        <h1 className="text-7xl font-moda text-white">CONTATO</h1>
+                        <h1 className="text-6xl font-moda w-[100%] text-center">CONTATO</h1>
                     </div>
                     <p className="fade-in-item text-base sm:text-lg md:text-2xl font-medium text-gray-300 font-moda max-md:text-xl max-md:mt-6">
                         Por favor, entre em contato através de algum destes endereços para entrar em contato conosco.
@@ -176,7 +176,7 @@ const Contact = () => {
             </section>
             <div className="marquee-container relative overflow-hidden -mt-20">
                 {/* Conteúdo da marquee */}
-                <div className="animate-marquee flex">
+                <div className="animate-marquee flex mt-[10vh]">
                     <img src="images/marcas.png" alt="Marcas" className="h-[15rem] object-contain self-start max-md:h-[8rem]" />
                     <img src="images/marcas.png" alt="Marcas" className="h-[15rem] object-contain self-start max-md:h-[8rem]" />
                     <img src="images/marcas.png" alt="Marcas" className="h-[15rem] object-contain self-start max-md:h-[8rem]" />

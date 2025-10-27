@@ -66,7 +66,7 @@ const Location = () => {
 
                 tl.fromTo(animatedVideoContainerRef.current,
                     { width: '90vw', height: '90vw', y: 0, opacity: 1 },
-                    { width: '75vw', height: '75vw', y: -220, opacity: 0.9, ease: 'power2.inOut' },
+                    { width: '75vw', height: '75vw', y: "-20vh", opacity: 0.9, ease: 'power2.inOut' },
                     0);
 
                 tl.to(backgroundVideoRef.current, { opacity: 0.3, ease: 'power2.inOut' }, 0);
@@ -122,7 +122,7 @@ const Location = () => {
                         autoPlay
                         loop
                         muted
-                        className="w-full h-full object-cover rounded-lg shadow-xl shadow-black/50"
+                        className="w-full h-full scale-150 max-md:scale-100 object-cover rounded-lg shadow-xl shadow-black/50"
                     />
                 </div>
 
