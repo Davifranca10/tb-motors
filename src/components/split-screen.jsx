@@ -34,7 +34,7 @@ const SplitScreen = () => {
     const mustangCtaRef = useRef(null);
 
 
-  
+
 
 
     useGSAP(() => {
@@ -244,7 +244,7 @@ const SplitScreen = () => {
                     </div>
 
                 </section>
-                
+
 
                 <div className="w-[110%] h-0.5  -ml-10 bg-gradient-to-r from-[#000000] via-[#1d1600] to-[#ff0000]"></div>
 
@@ -261,7 +261,7 @@ const SplitScreen = () => {
                         <div className="w-[60vw] h-[80vw]"></div>
 
                         <div id="title">
-                            <h2 className="font-bebas text-[180px] font-bold  orange mb-6 text-center">
+                            <h2 id="sobre-nos" className="font-bebas text-[180px] font-bold  orange mb-6 text-center">
                                 <span className="text-white">QUEM</span> SOMOS
                             </h2>
                             <h3 className="text-2xl -mt-20 pb-30 text-center tracking-widest font-light">
@@ -407,9 +407,16 @@ const SplitScreen = () => {
                                     CAYMANN
                                 </h1>
 
-                                <button className="bg-[#1a1a1a] text-[#006dff] py-3 px-10 rounded-full mt-6 uppercase font-bold text-sm hover:bg-gray-800 transition-colors duration-300 border border-gray-700">
+                                <a
+                                    href="https://www.instagram.com/p/DMxvLwSsOkA/?img_index=1"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-[90%] py-4 mt-10 uppercase font-bold tracking-widest text-xs rounded-full 
+                                    bg-[#0a0a0a] text-[#006dff] border border-[#003b95] text-center 
+                                    transition-all duration-300 hover:bg-[#003b95] hover:text-white hover:scale-110"
+                                >
                                     Saiba Mais
-                                </button>
+                                </a>
                             </div>
 
                         </div>
@@ -436,9 +443,16 @@ const SplitScreen = () => {
                                     MUSTANG GT
                                 </h1>
 
-                                <button className="bg-[#171212] text-[#ec0000] py-3 px-10 rounded-full mt-6 uppercase font-bold text-sm hover:bg-[#2c0000] transition-colors duration-300 border border-[#540404]">
+                                <a
+                                    href="https://www.instagram.com/p/DKw4XkuswYD/?img_index=3"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-[90%] py-4 mt-10 uppercase font-bold tracking-widest text-xs rounded-full 
+                                    bg-[#0a0a0a] text-[#ec0000] border border-[#610000] text-center 
+                                    transition-all duration-300 hover:bg-[#610000] hover:text-white hover:scale-110"
+                                >
                                     Saiba Mais
-                                </button>
+                                </a>
                             </div>
                         </div>
 

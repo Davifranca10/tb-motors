@@ -1,6 +1,6 @@
 const navLinks = [
-	{ id: 'sobrenos', title: 'Sobre-Nós' },
-	{ id: 'carros', title: 'Carros' },
+	{ id: 'home', title: 'Início' },
+	{ id: 'sobre-nos', title: 'Sobre-Nós' },
 	{ id: 'contato', title: 'Contato' }
 ];
 

@@ -173,10 +173,15 @@ const MobSplit = () => {
                                         <img src="images/porshe718.png" alt="Porsche 718 Caymann" className="absolute top-[-6rem] z-20 max-w-md" />
                                     </div>
                                     <h1 className="font-bebas text-8xl text-white tracking-wider -mt-[6rem]">CAYMANN</h1>
-                                    <button className="w-[90%] py-4 mt-10 uppercase font-bold tracking-widest text-xs rounded-full 
-                                    bg-[#0a0a0a] text-[#006dff] border border-[#003b95]">
+                                    <a
+                                        href="https://www.instagram.com/tb_motors_sc"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-[90%] py-4 mt-10 uppercase font-bold tracking-widest text-xs rounded-full 
+                                        bg-[#0a0a0a] text-[#006dff] border border-[#003b95] text-center"
+                                    >
                                         Saiba Mais
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                             <div id="mustang-cta" className={`w-full h-full flex flex-col items-center justify-center text-center absolute top-0 left-0 transition-opacity duration-500 ${currentDream === 1 ? 'opacity-100' : 'opacity-0'}`}>
@@ -186,10 +191,15 @@ const MobSplit = () => {
                                         <img src="images/mustang.png" alt="Mustang GT" className="absolute top-[-6rem] z-20 max-w-md" />
                                     </div>
                                     <h1 className="font-bebas text-8xl text-[#ec0000] tracking-wider -mt-[6rem]">MUSTANG GT</h1>
-                                    <button className="w-[90%] py-4 mt-10 uppercase font-bold tracking-widest text-xs rounded-full 
-                                    bg-[#0a0a0a] text-[#ec0000] border border-[#610000]">
+                                    <a
+                                        href="https://www.instagram.com/tb_motors_sc"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-[90%] py-4 mt-10 uppercase font-bold tracking-widest text-xs rounded-full 
+                                        bg-[#0a0a0a] text-[#ec0000] border border-[#610000] text-center"
+                                    >
                                         Saiba Mais
-                                    </button>                                </div>
+                                    </a>                             </div>
                             </div>
                         </div>
 
@@ -221,7 +231,7 @@ const MobSplit = () => {
     };
 
     return (
-        <div ref={containerRef} className="w-full bg-black">
+        <div id='sobre-nos' ref={containerRef} className="w-full bg-black">
             <div className="relative">
                 <img src="images/split.png" alt="About us" className="w-full h-auto" />
                 <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">

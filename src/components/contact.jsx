@@ -77,6 +77,7 @@ const Contact = () => {
             <div className="w-[110%] h-0.5 -ml-10 bg-gradient-to-r from-[#000000] via-[#1d1600] to-[#ffffff]"></div>
 
             <section
+            id='contato'
                 ref={container}
                 className="relative min-h-screen bg-black text-white flex flex-col justify-center items-center p-4 sm:p-8 font-serif max-md:justify-start"
             >
