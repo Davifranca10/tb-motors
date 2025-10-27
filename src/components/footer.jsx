@@ -35,13 +35,21 @@ const Footer = () => {
                     <img src="/images/farol.png" alt="Farol" className="w-35 absolute  ml-3" />
                     <p className="text-[18px] text-white pt-13">VAMOS NEGOCIAR?</p>
                     <h2 className="text-8xl max-md:text-6xl my-2 -mt-8 max-md:mt-0 leading-35 max-md:leading-20 ">VENHA<br />FAZER<br />PARTE!</h2>
-                    <div className="mt-5 flex items-center gap-4">
-                        <a href="#" className="text-xl">IG</a>
-                        <a href="#" className="text-xl">FB</a>
-                        <a href="#" className="text-xl">WA</a>
-                        <a href="#" className="text-xl">EM</a>
-                        <img src="/images/logotb-rodape.png" alt="TB Motors Logo" className="w-90 scale-150 ml-15 -mt-70 flex-row md:hidden" />
+                    <div id='icons' className="mt-5 flex items-center gap-7 max-md:gap-4">
+                        <a href="https://www.instagram.com/tb_motors_sc" target="_blank" rel="noopener noreferrer" className="text-3xl max-md:text-2xl">
+                            <FaInstagram />
+                        </a>
+                        <a href="https://www.facebook.com/thiagobegonhaconsultor" target="_blank" rel="noopener noreferrer" className="text-3xl max-md:text-2xl">
+                            <FaFacebook />
+                        </a>
+                        <a href="https://wa.me/5547988536476" target="_blank" rel="noopener noreferrer" className="text-3xl max-md:text-2xl">
+                            <FaWhatsapp />
+                        </a>
+                        <a href="mailto:thiagodvd@yahoo.com.br" target="_blank" rel="noopener noreferrer" className="text-3xl max-md:text-2xl">
+                            <FaEnvelope />
+                        </a>
 
+                        <img src="/images/logotb-rodape.png" alt="TB Motors Logo" className="w-90 scale-150 ml-15 -mt-70 flex-row md:hidden" />
                     </div>
 
                 </div>
@@ -80,23 +88,23 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-          <div className="mt-16">
-  {/* Linha fina */}
-  <div className="w-full h-[0.5px] bg-[#c5a47e] opacity-40"></div>
+            <div className="mt-16">
+                {/* Linha fina */}
+                <div className="w-full h-[0.5px] bg-[#c5a47e] opacity-40"></div>
 
-  {/* Conteúdo centralizado */}
-  <div className="text-center -pb-10 overflow-hidden mt-4">
-    <h1 className="text-[15vw] font-bold tracking-wider m-0 leading-none max-md:text-[10vw]">
-      TBMOTORS
-    </h1>
+                {/* Conteúdo centralizado */}
+                <div className="text-center -pb-10 overflow-hidden mt-4">
+                    <h1 className="text-[15vw] font-bold tracking-wider m-0 leading-none max-md:text-[10vw]">
+                        TBMOTORS
+                    </h1>
 
-    {/* Texto inferior */}
-    <div className="flex justify-between text-xs mt-2 max-md:flex-col max-md:space-y-1 max-md:text-center">
-      <span>© 2025 TB Motors. Todos os direitos reservados. Política de Privacidade.</span>
-      <span>Feito por Davi França</span>
-    </div>
-  </div>
-</div>
+                    {/* Texto inferior */}
+                    <div className="flex justify-between text-xs mt-2 max-md:flex-col max-md:space-y-1 max-md:text-center">
+                        <span>© 2025 TB Motors. Todos os direitos reservados. Política de Privacidade.</span>
+                        <span>Feito por Davi França</span>
+                    </div>
+                </div>
+            </div>
         </footer>
     );
 };
